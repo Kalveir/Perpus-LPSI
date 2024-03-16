@@ -1,0 +1,31 @@
+created:
+    - database/factories/PengunjungFactory.php
+    - database/factories/DendaFactory.php
+    - database/factories/PinjamFactory.php
+    - database/factories/NominalDendaFactory.php
+    - database/factories/KategoriFactory.php
+    - database/factories/RakFactory.php
+    - database/factories/BukuFactory.php
+    - database/migrations/2024_03_16_021900_create_pengunjungs_table.php
+    - database/migrations/2024_03_16_021901_create_dendas_table.php
+    - database/migrations/2024_03_16_021902_create_pinjams_table.php
+    - database/migrations/2024_03_16_021903_create_nominal_dendas_table.php
+    - database/migrations/2024_03_16_021904_create_kategoris_table.php
+    - database/migrations/2024_03_16_021905_create_raks_table.php
+    - database/migrations/2024_03_16_021906_create_bukus_table.php
+    - app/Models/Pengunjung.php
+    - app/Models/Denda.php
+    - app/Models/Pinjam.php
+    - app/Models/Nominal_denda.php
+    - app/Models/Kategori.php
+    - app/Models/Rak.php
+    - app/Models/Buku.php
+models:
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Pengunjung: { id: primary, tanggal: date, nama: string, instansi: string, alamat: string, jenis_kelamin: integer, tujuan: string }
+    Denda: { id: primary, pinjam_id: foreign, denda: integer, lama_waktu: integer, tgl_denda: date, relationships: { belongsTo: Pinjam } }
+    Pinjam: { nama: string, status: integer, buku_id: foreign, tgl_pinjam: date, lama_pinjam: integer, tgl_balik: date, tgl_kembali: date, relationships: { belongsTo: Buku } }
+    Nominal_denda: { id: primary, nominal: integer, status: integer, tanggal: date }
+    Kategori: { id: primary, nama: string }
+    Rak: { id: primary, nama: string }
+    Buku: { id_kategori: foreign, id_rak: foreign, sampul: string, isbn: string, lampiran: string, judul: string, penerbit: string, penulis: string, tahun: date, isi: integer, jumlah: integer, tanggal_masuk: date, no_induk: string, rf_id: string, no_barcode: string, peroleh: string, relationships: { belongsTo: 'Rak,Kategori' } }
