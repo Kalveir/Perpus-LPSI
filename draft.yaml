@@ -1,15 +1,15 @@
 models:
   Pengunjung :
-    id : primary
+    id : integer increments
     nama : string
     instansi : string
     alamat : string
-    jenis_kelamin : integer
+    jenis_kelamin : string
     tujuan : string
-    tanggal : date
+    tanggal : string
 
   Denda :
-    id : primary
+    id : integer increments
     pinjam_id : foreign
     denda : integer
     lama_waktu : integer
@@ -30,17 +30,17 @@ models:
       belongsTo : Buku
   
   Nominal_denda :
-    id : primary
+    id : integer increments
     nominal : integer
     status : integer
     tanggal : date
   
   Kategori :
-    id : primary
+    id : integer increments
     nama : string
   
   Rak :
-    id : primary
+    id : integer increments
     nama : string
 
   Buku :

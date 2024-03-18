@@ -22,13 +22,4 @@ class Pengunjung extends Model
         'tujuan',
         'tanggal',
     ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'tanggal' => 'date',
-    ];
 }

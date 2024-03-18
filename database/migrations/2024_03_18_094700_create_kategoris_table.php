@@ -13,12 +13,9 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('dendas', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->foreignId('pinjam_id')->constrained();
-            $table->integer('denda');
-            $table->integer('lama_waktu');
-            $table->date('tgl_denda');
+        Schema::create('kategoris', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nama');
             $table->timestamps();
         });
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dendas');
+        Schema::dropIfExists('kategoris');
     }
 };
