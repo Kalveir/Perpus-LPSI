@@ -1,12 +1,12 @@
 models:
   Pengunjung :
     id : primary
-    tanggal : date
     nama : string
     instansi : string
     alamat : string
     jenis_kelamin : integer
     tujuan : string
+    tanggal : date
 
   Denda :
     id : primary
@@ -62,10 +62,6 @@ models:
     peroleh : string
     relationships :
       belongsTo : Rak,Kategori
-  
-
-
-    
 
   
 

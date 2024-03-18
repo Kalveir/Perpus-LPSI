@@ -9,26 +9,21 @@ Ini judul
 <button type="button" class="btn btn-primary">Contoh Button</button>
 @endsection
 @section('content')
-<table id="example1" class="table table-bordered table-striped">
+<table id="tabel_data" class="table table-bordered table-striped">
 	<thead>
 		<tr>
 			<th>Nama</th>
 			<th>Instansi</th>
 			<th>Alamat</th>
-			<th>Jenis_Kelamin</th>
+			<th>Jenis Kelamin</th>
 			<th>Tujuan</th>
 			<th>Tanggal</th>
 		</tr>	
 	</thead>
 	<tbody>
 		<tr>
-			<td>Firman</td>
-			<td>Dinas Pertanian</td>
-			<td>Laki-Laki</td>
-			<td>Membaca</td>
-			<td>20-02-2020</td>	
+			
 		</tr>
-		
 	</tbody>
 </table>
 @endsection

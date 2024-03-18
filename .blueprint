@@ -6,13 +6,13 @@ created:
     - database/factories/KategoriFactory.php
     - database/factories/RakFactory.php
     - database/factories/BukuFactory.php
-    - database/migrations/2024_03_16_021900_create_pengunjungs_table.php
-    - database/migrations/2024_03_16_021901_create_dendas_table.php
-    - database/migrations/2024_03_16_021902_create_pinjams_table.php
-    - database/migrations/2024_03_16_021903_create_nominal_dendas_table.php
-    - database/migrations/2024_03_16_021904_create_kategoris_table.php
-    - database/migrations/2024_03_16_021905_create_raks_table.php
-    - database/migrations/2024_03_16_021906_create_bukus_table.php
+    - database/migrations/2024_03_18_022523_create_pengunjungs_table.php
+    - database/migrations/2024_03_18_022524_create_dendas_table.php
+    - database/migrations/2024_03_18_022525_create_pinjams_table.php
+    - database/migrations/2024_03_18_022526_create_nominal_dendas_table.php
+    - database/migrations/2024_03_18_022527_create_kategoris_table.php
+    - database/migrations/2024_03_18_022528_create_raks_table.php
+    - database/migrations/2024_03_18_022529_create_bukus_table.php
     - app/Models/Pengunjung.php
     - app/Models/Denda.php
     - app/Models/Pinjam.php
@@ -21,8 +21,8 @@ created:
     - app/Models/Rak.php
     - app/Models/Buku.php
 models:
-    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
-    Pengunjung: { id: primary, tanggal: date, nama: string, instansi: string, alamat: string, jenis_kelamin: integer, tujuan: string }
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
+    Pengunjung: { id: primary, nama: string, instansi: string, alamat: string, jenis_kelamin: integer, tujuan: string, tanggal: date }
     Denda: { id: primary, pinjam_id: foreign, denda: integer, lama_waktu: integer, tgl_denda: date, relationships: { belongsTo: Pinjam } }
     Pinjam: { nama: string, status: integer, buku_id: foreign, tgl_pinjam: date, lama_pinjam: integer, tgl_balik: date, tgl_kembali: date, relationships: { belongsTo: Buku } }
     Nominal_denda: { id: primary, nominal: integer, status: integer, tanggal: date }

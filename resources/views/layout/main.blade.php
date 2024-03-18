@@ -8,17 +8,34 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('')}}plugins/fontawesome-free/css/all.min.css">
+  <!-- datatables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap4.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{{asset('')}}plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{{asset('')}}plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{{asset('')}}plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('/dist/css/adminlte.min.css')}}">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="{{ asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{asset('')}}dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{asset('')}}plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{asset('')}}plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{asset('')}}plugins/summernote/summernote-bs4.min.css">
 </head>
-<body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{{asset('')}}dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
   <!-- Navbar -->
   @include('layout.navbar')
   <!-- /.navbar -->
@@ -29,24 +46,28 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>@yield('judul')</h1>
-          </div>
-        </div>
+            <h1 class="m-0">@yield('judul')</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v1</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </section>
+    </div>
+    <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
       <div class="card">
         <div class="card-header">
-         
-         @yield('button')
+          @yield('button')
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -58,19 +79,14 @@
           </div>
         </div>
         <div class="card-body">
-          @yield('content')
+         @yield('content')
         </div>
-        <!-- /.card-body -->
-        <!-- /.card-footer-->
       </div>
-      <!-- /.card -->
-
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
- @include('layout.footer')
+  @include('layout.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -81,36 +97,47 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('/plugins/jquery/jquery.min.js')}}"></script>
-<!-- DataTables  & Plugins -->
-<script src="{{ asset('/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('/plugins/jszip/jszip.min.js') }}"></script>
-<script src="{{ asset('/plugins/pdfmake/pdfmake.min.js') }}"></script>
-<script src="{{ asset('/plugins/pdfmake/vfs_fonts.js') }}"></script>
-<script src="{{ asset('/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ asset('/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('/dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="{{asset('/dist/js/demo.js')}}"></script> -->
+<script src="{{asset('')}}plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset('')}}plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $(document).ready(function() {
-      // Inisialisasi DataTable
-      var dataTable = $("#example1").DataTable({
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('')}}plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- datatables -->
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap4.min.js"></script>
+<!-- JQVMap -->
+<script src="{{asset('')}}plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="{{asset('')}}plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- daterangepicker -->
+<script src="{{asset('')}}plugins/moment/moment.min.js"></script>
+<script src="{{asset('')}}plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{asset('')}}plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="{{asset('')}}plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('')}}dist/js/adminlte.js"></script>
+
+<script src="{{asset('')}}dist/js/pages/dashboard.js"></script>
+<script>
+        $(document).ready(function() {
+            // Inisialisasi DataTable
+             $("#tabel_data").DataTable()
+            // Fokus pada input pencarian setelah DataTable diinisialisasi
+            // $('div.dataTables_filter input').focus();
+        });
+</script>
+<!-- <script>
+  $(function () {
+    $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-      // Fokus pada input pencarian setelah DataTable diinisialisasi
-      $('div.dataTables_filter input').focus();
   });
-</script>
+</script> -->
 </body>
 </html>

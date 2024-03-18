@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('pengunjungs', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->date('tanggal');
             $table->string('nama');
             $table->string('instansi');
             $table->string('alamat');
             $table->integer('jenis_kelamin');
             $table->string('tujuan');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

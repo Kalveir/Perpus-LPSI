@@ -15,12 +15,12 @@ class Pengunjung extends Model
      * @var array
      */
     protected $fillable = [
-        'tanggal',
         'nama',
         'instansi',
         'alamat',
         'jenis_kelamin',
         'tujuan',
+        'tanggal',
     ];
 
     /**
