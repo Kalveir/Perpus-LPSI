@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\RakKategoriController;
+use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,8 @@ Route::get('/', function () {
 // Route::get('/tabel', function () {
 //     return view('tabel');
 // });
+
+//kelola pengunjung
 Route::get('/pengunjung',[PengunjungController::class,'listPengunjung'])->name('pengunjung.index');
 Route::get('/buku-pengunjung',[PengunjungController::class,'addPengunjung'])->name('pengunjung.create');
 Route::post('/tambah-pengunjung',[PengunjungController::class,'storePengunjung'])->name('pengunjung.store');
@@ -40,3 +43,7 @@ Route::get('/kategori-buku',[RakKategoriController::class,'listKategori'])->name
 Route::post('/tambah-kategori',[RakKategoriController::class,'addKategori'])->name('kategori.store');
 Route::put('/kategori-update/{id}',[RakKategoriController::class,'updateKategori'])->name('kategori.update');
 Route::delete('/kategori-delete/{id}',[RakKategoriController::class,'deleteKategori'])->name('kategori.destroy');
+
+//kelola buku
+Route::get('/buku', [BukuController::class,'index'])->name('buku.index');
+Route::get('/tambah_buku',[BukuController::class,'create'])->name('buku.create');

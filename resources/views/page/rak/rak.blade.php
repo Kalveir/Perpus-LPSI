@@ -10,7 +10,7 @@ Daftar Rak
   <i class="fas fa-plus"></i><span> Tambah Rak</span></button>
 @endsection
 @section('content')
-<table id="tabel_data" class="table table-bordered table-striped">
+<table id="example1" class="table table-bordered table-striped">
 	<thead>
 		<tr>
 			<th>No</th>

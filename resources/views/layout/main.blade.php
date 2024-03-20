@@ -50,7 +50,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">@yield('judul')</h1>
+            <strong><h1 class="m-0">@yield('judul')</h1></strong>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -65,7 +65,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="card">
+      <div class="card card-primary card-outline">
         <div class="card-header">
           @yield('button')
         </div>
@@ -114,21 +114,14 @@
 <script src="{{ asset('/dist/js/adminlte.js') }}"></script>
 
 <script src="{{ asset('/dist/js/pages/dashboard.js') }}"></script>
+
 <script>
-        $(document).ready(function() 
-            // Inisialisasi DataTable
-             $("#tabel_data").DataTable()
-            // Fokus pada input pencarian setelah DataTable diinisialisasi
-            // $('div.dataTables_filter input').focus();
-        });
-</script>
-<!-- <script>
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
-</script> -->
+</script>
 </body>
 </html>
