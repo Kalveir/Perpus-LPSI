@@ -6,13 +6,13 @@ created:
     - database/factories/KategoriFactory.php
     - database/factories/RakFactory.php
     - database/factories/BukuFactory.php
-    - database/migrations/2024_03_20_025950_create_pengunjungs_table.php
-    - database/migrations/2024_03_20_025951_create_dendas_table.php
-    - database/migrations/2024_03_20_025952_create_pinjams_table.php
-    - database/migrations/2024_03_20_025953_create_nominal_dendas_table.php
-    - database/migrations/2024_03_20_025954_create_kategoris_table.php
-    - database/migrations/2024_03_20_025955_create_raks_table.php
-    - database/migrations/2024_03_20_025956_create_bukus_table.php
+    - database/migrations/2024_03_21_133420_create_pengunjungs_table.php
+    - database/migrations/2024_03_21_133421_create_dendas_table.php
+    - database/migrations/2024_03_21_133422_create_pinjams_table.php
+    - database/migrations/2024_03_21_133423_create_nominal_dendas_table.php
+    - database/migrations/2024_03_21_133424_create_kategoris_table.php
+    - database/migrations/2024_03_21_133425_create_raks_table.php
+    - database/migrations/2024_03_21_133426_create_bukus_table.php
     - app/Models/Pengunjung.php
     - app/Models/Denda.php
     - app/Models/Pinjam.php
@@ -21,11 +21,11 @@ created:
     - app/Models/Rak.php
     - app/Models/Buku.php
 models:
-    User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
     Pengunjung: { id: 'integer increments', nama: string, instansi: string, alamat: string, jenis_kelamin: string, tujuan: string, tanggal: string }
     Denda: { id: 'integer increments', pinjam_id: foreign, denda: integer, lama_waktu: integer, tgl_denda: date, relationships: { belongsTo: Pinjam } }
     Pinjam: { nama: string, status: integer, buku_id: foreign, tgl_pinjam: date, lama_pinjam: integer, tgl_balik: date, tgl_kembali: date, relationships: { belongsTo: Buku } }
     Nominal_denda: { id: 'integer increments', nominal: integer, status: integer, tanggal: date }
     Kategori: { id: 'integer increments', nama: string }
     Rak: { id: 'integer increments', nama: string }
-    Buku: { id_kategori: foreign, id_rak: foreign, sampul: string, isbn: string, lampiran: string, judul: string, penerbit: string, penulis: string, tahun: date, isi: integer, jumlah: integer, tanggal_masuk: date, no_induk: string, rf_id: string, no_barcode: string, peroleh: string, relationships: { belongsTo: 'Rak,Kategori' } }
+    Buku: { id_kategori: foreign, id_rak: foreign, sampul: string, isbn: string, judul: string, penerbit: string, penulis: string, tahun: date, isi: integer, jumlah: integer, tanggal_masuk: date, no_induk: string, rf_id: string, no_barcode: string, peroleh: string, relationships: { belongsTo: 'Rak,Kategori' } }

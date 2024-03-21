@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreignId('id_rak')->constrained();
             $table->string('sampul');
             $table->string('isbn');
-            $table->string('lampiran');
             $table->string('judul');
             $table->string('penerbit');
             $table->string('penulis');

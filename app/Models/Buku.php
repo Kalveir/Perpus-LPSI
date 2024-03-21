@@ -20,7 +20,6 @@ class Buku extends Model
         'id_rak',
         'sampul',
         'isbn',
-        'lampiran',
         'judul',
         'penerbit',
         'penulis',

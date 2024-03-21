@@ -21,4 +21,14 @@ class BukuController extends Controller
         $rak = Rak::get();
         return view('page.buku.tambah_buku',compact('kategori','rak'));
     }
+
+    public function info()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        return $request;
+    }
 }

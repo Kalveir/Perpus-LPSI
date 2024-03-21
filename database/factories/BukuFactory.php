@@ -29,7 +29,6 @@ class BukuFactory extends Factory
             'id_rak' => IdRak::factory(),
             'sampul' => $this->faker->word(),
             'isbn' => $this->faker->word(),
-            'lampiran' => $this->faker->word(),
             'judul' => $this->faker->word(),
             'penerbit' => $this->faker->word(),
             'penulis' => $this->faker->word(),

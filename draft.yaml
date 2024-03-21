@@ -48,7 +48,6 @@ models:
     id_rak : foreign
     sampul : string
     isbn : string
-    lampiran : string
     judul : string
     penerbit : string
     penulis : string
