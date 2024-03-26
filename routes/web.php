@@ -49,3 +49,6 @@ Route::get('/buku', [BukuController::class,'index'])->name('buku.index');
 Route::get('/tambah_buku',[BukuController::class,'create'])->name('buku.create');
 Route::post('/tambah_buku/store',[BukuController::class,'store'])->name('buku.store');
 Route::get('/buku/info/{id}',[BukuController::class,'info'])->name('buku.info');
+Route::get('/buku/edit/{id}',[BukuController::class,'edit'])->name('buku.edit');
+Route::put('/buku/update/{id}',[BukuController::class,'update'])->name('buku.update');
+Route::delete('/buku/delete/{id}',[BukuController::class, 'destroy'])->name('buku.destroy');

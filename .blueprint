@@ -6,13 +6,13 @@ created:
     - database/factories/KategoriFactory.php
     - database/factories/RakFactory.php
     - database/factories/BukuFactory.php
-    - database/migrations/2024_03_21_133420_create_pengunjungs_table.php
-    - database/migrations/2024_03_21_133421_create_dendas_table.php
-    - database/migrations/2024_03_21_133422_create_pinjams_table.php
-    - database/migrations/2024_03_21_133423_create_nominal_dendas_table.php
-    - database/migrations/2024_03_21_133424_create_kategoris_table.php
-    - database/migrations/2024_03_21_133425_create_raks_table.php
-    - database/migrations/2024_03_21_133426_create_bukus_table.php
+    - database/migrations/2024_03_22_041052_create_pengunjungs_table.php
+    - database/migrations/2024_03_22_041053_create_dendas_table.php
+    - database/migrations/2024_03_22_041054_create_pinjams_table.php
+    - database/migrations/2024_03_22_041055_create_nominal_dendas_table.php
+    - database/migrations/2024_03_22_041056_create_kategoris_table.php
+    - database/migrations/2024_03_22_041057_create_raks_table.php
+    - database/migrations/2024_03_22_041058_create_bukus_table.php
     - app/Models/Pengunjung.php
     - app/Models/Denda.php
     - app/Models/Pinjam.php
@@ -28,4 +28,4 @@ models:
     Nominal_denda: { id: 'integer increments', nominal: integer, status: integer, tanggal: date }
     Kategori: { id: 'integer increments', nama: string }
     Rak: { id: 'integer increments', nama: string }
-    Buku: { id_kategori: foreign, id_rak: foreign, sampul: string, isbn: string, judul: string, penerbit: string, penulis: string, tahun: date, isi: integer, jumlah: integer, tanggal_masuk: date, no_induk: string, rf_id: string, no_barcode: string, peroleh: string, relationships: { belongsTo: 'Rak,Kategori' } }
+    Buku: { id_kategori: foreign, id_rak: foreign, sampul: string, isbn: string, judul: string, penerbit: string, penulis: string, tahun: integer, isi: integer, jumlah: integer, tanggal_masuk: string, no_induk: string, rf_id: string, no_barcode: string, peroleh: string, relationships: { belongsTo: 'Rak, Kategori' } }

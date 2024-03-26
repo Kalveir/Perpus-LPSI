@@ -44,8 +44,6 @@ class Buku extends Model
         'id' => 'integer',
         'id_kategori' => 'integer',
         'id_rak' => 'integer',
-        'tahun' => 'date',
-        'tanggal_masuk' => 'date',
         'rak_id' => 'integer',
         'kategori_id' => 'integer',
     ];

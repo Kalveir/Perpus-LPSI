@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('judul');
             $table->string('penerbit');
             $table->string('penulis');
-            $table->date('tahun');
+            $table->integer('tahun');
             $table->integer('isi');
             $table->integer('jumlah');
-            $table->date('tanggal_masuk');
+            $table->string('tanggal_masuk');
             $table->string('no_induk');
             $table->string('rf_id');
             $table->string('no_barcode');

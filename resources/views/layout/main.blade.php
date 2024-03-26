@@ -55,12 +55,6 @@
           <div class="col-sm-6">
             <strong><h1 class="m-0">@yield('judul')</h1></strong>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -117,6 +111,8 @@
 <script src="{{ asset('/dist/js/adminlte.js') }}"></script>
 <script src="{{ asset('/plugins/select2/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('/dist/js/pages/dashboard.js') }}"></script>
+{{-- custom file --}}
+<script src="{{ asset('/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 
 <script>
   $(function () {

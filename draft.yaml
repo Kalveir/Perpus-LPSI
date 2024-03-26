@@ -51,16 +51,16 @@ models:
     judul : string
     penerbit : string
     penulis : string
-    tahun : date
+    tahun : integer
     isi : integer
     jumlah : integer
-    tanggal_masuk : date
+    tanggal_masuk : string
     no_induk : string
     rf_id : string
     no_barcode : string
     peroleh : string
     relationships :
-      belongsTo : Rak,Kategori
+      belongsTo : Rak, Kategori
 
   
 
