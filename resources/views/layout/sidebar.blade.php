@@ -76,23 +76,23 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-search"></i>
+              <i class="nav-icon fas fa-random"></i>
               <p>
-                Search
+                Sirkulasi
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/search/simple.html" class="nav-link">
+                <a href="{{ route('sirkulasi.pinjam') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Search</p>
+                  <p>Peminjaman</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/search/enhanced.html" class="nav-link">
+                <a href="{{ route('sirkulasi.kembali') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Enhanced</p>
+                  <p>Pengembalian</p>
                 </a>
               </li>
             </ul>

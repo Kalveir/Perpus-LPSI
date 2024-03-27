@@ -3,6 +3,7 @@
 use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\RakKategoriController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\SirkulasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,3 +53,8 @@ Route::get('/buku/info/{id}',[BukuController::class,'info'])->name('buku.info');
 Route::get('/buku/edit/{id}',[BukuController::class,'edit'])->name('buku.edit');
 Route::put('/buku/update/{id}',[BukuController::class,'update'])->name('buku.update');
 Route::delete('/buku/delete/{id}',[BukuController::class, 'destroy'])->name('buku.destroy');
+
+// kelola sirkulasi
+Route::get('/peminjaman',[SirkulasiController::class,'pinjam'])->name('sirkulasi.pinjam');
+Route::get('/pengembalian',[SirkulasiController::class,'kembali'])->name('sirkulasi.kembali');
+Route::get('/tambah-pinjam',[SirkulasiController::class,'create'])->name('sirkulasi.tambah');
