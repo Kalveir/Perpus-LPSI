@@ -16,8 +16,6 @@ class NominalDenda extends Model
      */
     protected $fillable = [
         'nominal',
-        'status',
-        'tanggal',
     ];
 
     /**
@@ -26,6 +24,6 @@ class NominalDenda extends Model
      * @var array
      */
     protected $casts = [
-        'tanggal' => 'date',
+        'id' => 'integer',
     ];
 }

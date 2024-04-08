@@ -22,8 +22,6 @@ class NominalDendaFactory extends Factory
     {
         return [
             'nominal' => $this->faker->numberBetween(-10000, 10000),
-            'status' => $this->faker->numberBetween(-10000, 10000),
-            'tanggal' => $this->faker->date(),
         ];
     }
 }

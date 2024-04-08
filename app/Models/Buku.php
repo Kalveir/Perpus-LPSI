@@ -16,8 +16,8 @@ class Buku extends Model
      * @var array
      */
     protected $fillable = [
-        'id_kategori',
-        'id_rak',
+        'kategori_id',
+        'rak_id',
         'sampul',
         'isbn',
         'judul',
@@ -31,8 +31,6 @@ class Buku extends Model
         'rf_id',
         'no_barcode',
         'peroleh',
-        'rak_id',
-        'kategori_id',
     ];
 
     /**
@@ -42,10 +40,8 @@ class Buku extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'id_kategori' => 'integer',
-        'id_rak' => 'integer',
-        'rak_id' => 'integer',
         'kategori_id' => 'integer',
+        'rak_id' => 'integer',
     ];
 
     public function rak(): BelongsTo
@@ -56,15 +52,5 @@ class Buku extends Model
     public function kategori(): BelongsTo
     {
         return $this->belongsTo(Kategori::class);
-    }
-
-    public function idKategori(): BelongsTo
-    {
-        return $this->belongsTo(IdKategori::class);
-    }
-
-    public function idRak(): BelongsTo
-    {
-        return $this->belongsTo(IdRak::class);
     }
 }

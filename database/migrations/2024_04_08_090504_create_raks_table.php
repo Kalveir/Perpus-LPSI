@@ -11,17 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
-
-        Schema::create('nominal_dendas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('nominal');
-            $table->integer('status');
-            $table->date('tanggal');
+        Schema::create('raks', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
             $table->timestamps();
         });
-
-        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -29,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nominal_dendas');
+        Schema::dropIfExists('raks');
     }
 };

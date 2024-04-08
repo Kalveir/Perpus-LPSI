@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Denda extends Model
+class Pinjaman extends Model
 {
     use HasFactory;
 
@@ -17,9 +17,7 @@ class Denda extends Model
      */
     protected $fillable = [
         'pinjam_id',
-        'denda',
-        'lama_waktu',
-        'tgl_denda',
+        'buku_id',
     ];
 
     /**
@@ -28,12 +26,18 @@ class Denda extends Model
      * @var array
      */
     protected $casts = [
+        'id' => 'integer',
         'pinjam_id' => 'integer',
-        'tgl_denda' => 'date',
+        'buku_id' => 'integer',
     ];
 
     public function pinjam(): BelongsTo
     {
         return $this->belongsTo(Pinjam::class);
+    }
+
+    public function buku(): BelongsTo
+    {
+        return $this->belongsTo(Buku::class);
     }
 }

@@ -58,3 +58,4 @@ Route::delete('/buku/delete/{id}',[BukuController::class, 'destroy'])->name('buk
 Route::get('/peminjaman',[SirkulasiController::class,'pinjam'])->name('sirkulasi.pinjam');
 Route::get('/pengembalian',[SirkulasiController::class,'kembali'])->name('sirkulasi.kembali');
 Route::get('/tambah-pinjam',[SirkulasiController::class,'create'])->name('sirkulasi.tambah');
+Route::post('/input-pinjam',[SirkulasiController::class,'store'])->name('sirkulasi.store');

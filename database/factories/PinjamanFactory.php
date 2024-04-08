@@ -4,17 +4,18 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Denda;
+use App\Models\Buku;
 use App\Models\Pinjam;
+use App\Models\Pinjaman;
 
-class DendaFactory extends Factory
+class PinjamanFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Denda::class;
+    protected $model = Pinjaman::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +24,7 @@ class DendaFactory extends Factory
     {
         return [
             'pinjam_id' => Pinjam::factory(),
-            'denda' => $this->faker->numberBetween(-10000, 10000),
-            'lama_waktu' => $this->faker->numberBetween(-10000, 10000),
-            'tgl_denda' => $this->faker->date(),
+            'buku_id' => Buku::factory(),
         ];
     }
 }

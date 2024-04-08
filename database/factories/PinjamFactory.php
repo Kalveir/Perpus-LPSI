@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Buku;
 use App\Models\Pinjam;
 
 class PinjamFactory extends Factory
@@ -24,11 +23,11 @@ class PinjamFactory extends Factory
         return [
             'nama' => $this->faker->word(),
             'status' => $this->faker->numberBetween(-10000, 10000),
-            'buku_id' => Buku::factory(),
             'tgl_pinjam' => $this->faker->date(),
             'lama_pinjam' => $this->faker->numberBetween(-10000, 10000),
             'tgl_balik' => $this->faker->date(),
             'tgl_kembali' => $this->faker->date(),
+            'denda' => $this->faker->word(),
         ];
     }
 }

@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('bukus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_kategori')->constrained();
-            $table->foreignId('id_rak')->constrained();
+            $table->foreignId('kategori_id')->constrained();
+            $table->foreignId('rak_id')->constrained();
             $table->string('sampul');
             $table->string('isbn');
             $table->string('judul');
@@ -30,8 +30,6 @@ return new class extends Migration
             $table->string('rf_id');
             $table->string('no_barcode');
             $table->string('peroleh');
-            $table->foreignId('rak_id');
-            $table->foreignId('kategori_id');
             $table->timestamps();
         });
 

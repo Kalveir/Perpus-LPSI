@@ -1,6 +1,6 @@
 models:
   Pengunjung :
-    id : integer increments
+    id : id
     nama : string
     instansi : string
     alamat : string
@@ -8,44 +8,22 @@ models:
     tujuan : string
     tanggal : string
 
-  Denda :
-    id : integer increments
-    pinjam_id : foreign
-    denda : integer
-    lama_waktu : integer
-    tgl_denda : date
-    relationships:
-      belongsTo : Pinjam
-    
-  
-  Pinjam :
-    nama : string
-    status : integer
-    buku_id : foreign
-    tgl_pinjam : date
-    lama_pinjam : integer
-    tgl_balik : date
-    tgl_kembali : date
-    relationships :
-      belongsTo : Buku
-  
   Nominal_denda :
-    id : integer increments
+    id : id
     nominal : integer
-    status : integer
-    tanggal : date
-  
+
   Kategori :
-    id : integer increments
+    id : id
     nama : string
   
   Rak :
-    id : integer increments
+    id : id
     nama : string
 
   Buku :
-    id_kategori : foreign
-    id_rak : foreign
+    id : id
+    kategori_id : foreign
+    rak_id : foreign
     sampul : string
     isbn : string
     judul : string
@@ -60,8 +38,24 @@ models:
     no_barcode : string
     peroleh : string
     relationships :
-      belongsTo : Rak, Kategori
+      belongsTo : Rak,Kategori
 
+  Pinjam :
+    id : id
+    nama : string
+    status : integer
+    tgl_pinjam : date
+    lama_pinjam : integer
+    tgl_balik : date
+    tgl_kembali : date
+    denda : number
+
+  Pinjaman :
+    id : id
+    pinjam_id : foreign
+    buku_id : foreign
+    relationships:
+      belongsTo : Pinjam,Buku
   
 
 

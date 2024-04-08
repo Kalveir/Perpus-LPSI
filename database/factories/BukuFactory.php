@@ -5,8 +5,6 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Buku;
-use App\Models\IdKategori;
-use App\Models\IdRak;
 use App\Models\Kategori;
 use App\Models\Rak;
 
@@ -25,8 +23,8 @@ class BukuFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_kategori' => IdKategori::factory(),
-            'id_rak' => IdRak::factory(),
+            'kategori_id' => Kategori::factory(),
+            'rak_id' => Rak::factory(),
             'sampul' => $this->faker->word(),
             'isbn' => $this->faker->word(),
             'judul' => $this->faker->word(),
@@ -40,8 +38,6 @@ class BukuFactory extends Factory
             'rf_id' => $this->faker->word(),
             'no_barcode' => $this->faker->word(),
             'peroleh' => $this->faker->word(),
-            'rak_id' => Rak::factory(),
-            'kategori_id' => Kategori::factory(),
         ];
     }
 }

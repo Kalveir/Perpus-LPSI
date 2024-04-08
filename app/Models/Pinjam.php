@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pinjam extends Model
 {
@@ -18,11 +17,11 @@ class Pinjam extends Model
     protected $fillable = [
         'nama',
         'status',
-        'buku_id',
         'tgl_pinjam',
         'lama_pinjam',
         'tgl_balik',
         'tgl_kembali',
+        'denda',
     ];
 
     /**
@@ -32,14 +31,8 @@ class Pinjam extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'buku_id' => 'integer',
         'tgl_pinjam' => 'date',
         'tgl_balik' => 'date',
         'tgl_kembali' => 'date',
     ];
-
-    public function buku(): BelongsTo
-    {
-        return $this->belongsTo(Buku::class);
-    }
 }

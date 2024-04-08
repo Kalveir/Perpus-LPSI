@@ -17,4 +17,13 @@ class Rak extends Model
     protected $fillable = [
         'nama',
     ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+    ];
 }
