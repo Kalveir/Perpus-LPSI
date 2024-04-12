@@ -25,16 +25,28 @@ class SirkulasiController extends Controller
         return view('page.sirkulasi.tambah_pinjam',compact('buku'));
     }
 
-    public function store(Request $request )
+    public function store(Request $request)
     {
-        $pinjam = new Pinjam;
-        $pinjam->nama = $request->
-        $pinjam->tanggal_pinjam = $request->tanggal;
-        $data_tabel = json_decode($request->input('data_tabel'), true);
-        if (is_array($data_tabel)) {
-            foreach ($data_tabel as $data) {
-                $pinjaman = new Pinjaman;
-            }
+        // return $request;
+        if ($request->data_tabel == null)
+        {
+            return back();
+        }else 
+        {
+            $pinjam = new Pinjam;
+            $pinjam->nama = $request->nama;
+            $pinjam->tanggal_pinjam = $request->tanggal;
+            $pinjam->save();
+            $id_pinjam = $pinjam->id;
+            return $pinjam_id;
+
+            // $data_tabel = json_decode($request->input('data_tabel'), true);
+            // if (is_array($data_tabel)) {
+            //     foreach ($data_tabel as $data) {
+            //         $pinjaman = new Pinjaman;
+
+            //     }
+            // }
         }
     }
 }

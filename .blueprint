@@ -6,13 +6,13 @@ created:
     - database/factories/BukuFactory.php
     - database/factories/PinjamFactory.php
     - database/factories/PinjamanFactory.php
-    - database/migrations/2024_04_08_090501_create_pengunjungs_table.php
-    - database/migrations/2024_04_08_090502_create_nominal_dendas_table.php
-    - database/migrations/2024_04_08_090503_create_kategoris_table.php
-    - database/migrations/2024_04_08_090504_create_raks_table.php
-    - database/migrations/2024_04_08_090505_create_bukus_table.php
-    - database/migrations/2024_04_08_090506_create_pinjams_table.php
-    - database/migrations/2024_04_08_090507_create_pinjamen_table.php
+    - database/migrations/2024_04_12_055643_create_pengunjungs_table.php
+    - database/migrations/2024_04_12_055644_create_nominal_dendas_table.php
+    - database/migrations/2024_04_12_055645_create_kategoris_table.php
+    - database/migrations/2024_04_12_055646_create_raks_table.php
+    - database/migrations/2024_04_12_055647_create_bukus_table.php
+    - database/migrations/2024_04_12_055648_create_pinjams_table.php
+    - database/migrations/2024_04_12_055649_create_pinjamen_table.php
     - app/Models/Pengunjung.php
     - app/Models/Nominal_denda.php
     - app/Models/Kategori.php
@@ -21,7 +21,7 @@ created:
     - app/Models/Pinjam.php
     - app/Models/Pinjaman.php
 models:
-    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
     Pengunjung: { id: id, nama: string, instansi: string, alamat: string, jenis_kelamin: string, tujuan: string, tanggal: string }
     Nominal_denda: { id: id, nominal: integer }
     Kategori: { id: id, nama: string }
