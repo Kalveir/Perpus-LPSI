@@ -8,7 +8,7 @@ models:
     tujuan : string
     tanggal : string
 
-  Nominal_denda :
+  NominalDenda :
     id : id
     nominal : integer
 

@@ -6,24 +6,24 @@ created:
     - database/factories/BukuFactory.php
     - database/factories/PinjamFactory.php
     - database/factories/PinjamanFactory.php
-    - database/migrations/2024_04_12_055643_create_pengunjungs_table.php
-    - database/migrations/2024_04_12_055644_create_nominal_dendas_table.php
-    - database/migrations/2024_04_12_055645_create_kategoris_table.php
-    - database/migrations/2024_04_12_055646_create_raks_table.php
-    - database/migrations/2024_04_12_055647_create_bukus_table.php
-    - database/migrations/2024_04_12_055648_create_pinjams_table.php
-    - database/migrations/2024_04_12_055649_create_pinjamen_table.php
+    - database/migrations/2024_04_14_141848_create_pengunjungs_table.php
+    - database/migrations/2024_04_14_141849_create_nominal_dendas_table.php
+    - database/migrations/2024_04_14_141850_create_kategoris_table.php
+    - database/migrations/2024_04_14_141851_create_raks_table.php
+    - database/migrations/2024_04_14_141852_create_bukus_table.php
+    - database/migrations/2024_04_14_141853_create_pinjams_table.php
+    - database/migrations/2024_04_14_141854_create_pinjamen_table.php
     - app/Models/Pengunjung.php
-    - app/Models/Nominal_denda.php
+    - app/Models/NominalDenda.php
     - app/Models/Kategori.php
     - app/Models/Rak.php
     - app/Models/Buku.php
     - app/Models/Pinjam.php
     - app/Models/Pinjaman.php
 models:
-    User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
     Pengunjung: { id: id, nama: string, instansi: string, alamat: string, jenis_kelamin: string, tujuan: string, tanggal: string }
-    Nominal_denda: { id: id, nominal: integer }
+    NominalDenda: { id: id, nominal: integer }
     Kategori: { id: id, nama: string }
     Rak: { id: id, nama: string }
     Buku: { id: id, kategori_id: foreign, rak_id: foreign, sampul: string, isbn: string, judul: string, penerbit: string, penulis: string, tahun: integer, isi: integer, jumlah: integer, tanggal_masuk: string, no_induk: string, rf_id: string, no_barcode: string, peroleh: string, relationships: { belongsTo: 'Rak,Kategori' } }

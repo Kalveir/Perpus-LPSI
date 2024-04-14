@@ -25,15 +25,51 @@ Daftar Peminjaman Buku
       </tr>	
     </thead>
     <tbody>
+      @foreach($pinjam as $pjm)
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ $loop->iteration }}</td>
+        <td>{{ $pjm->nama }}</td>
+        <td>{{ date('d-m-Y',strtotime($pjm->tgl_pinjam)) }}</td>
+        <td>{{ date('d-m-Y',strtotime($pjm->tgl_kembali)) }}</td>
+        {{-- menghitung jumlah buku --}}
+        @php
+          $jumlah = 0;
+          foreach($pinjaman as $data_pinjam)
+          {
+            if($data_pinjam->pinjam_id == $pjm->id)
+            {
+              $jumlah++; 
+            }
+          }
+        @endphp
+        <td>{{ $jumlah }}</td>
+        {{-- menghitung jumlah hari dengan denda --}}
+        @php
+          $tanggal = $pjm->tgl_kembali;
+          $todays = date('Y-m-d');
+          $tanggal_1 = strtotime($tanggal);
+          $tanggal_2 = strtotime($todays);
+          $range = $tanggal_2-$tanggal_1;
+          $acumulate = $range / 60 / 60 / 24;
+
+          if($acumulate > 0)
+          {
+            $jumlah_denda = $acumulate * $denda->nominal;
+          }else {
+            $jumlah_denda = 0;
+          }
+        @endphp
+        <td>{{ 'Rp '.number_format($jumlah_denda,0,',','.') }}</td>
+        <td>
+          <div class="d-flex center-content-between">
+            <form action="{{ route('pinjam.info',$pjm->id) }}">
+              @csrf
+              <button class="btn btn-outline-primary"><i class="fas fa-eye"></i> Detail</button>
+            </form>
+          </div>
+        </td>
       </tr>
+      @endforeach
     </tbody>
   </table>
 </div>

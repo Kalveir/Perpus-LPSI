@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Nominal_denda;
+use App\Models\NominalDenda;
 
 class NominalDendaFactory extends Factory
 {

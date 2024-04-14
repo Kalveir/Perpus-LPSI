@@ -6,7 +6,7 @@ Rak Buku
 Daftar Rak
 @endsection
 @section('button')
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#input_modal">
+<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#input_modal">
   <i class="fas fa-plus"></i><span> Tambah Rak</span></button>
 @endsection
 @section('content')
@@ -24,14 +24,14 @@ Daftar Rak
 			<td>{{ $loop->iteration }}</td>
       <td>{{ $rk->nama }}</td>
       <td>
-        <button class="btn icon icon-left btn-warning" data-toggle="modal"
+        <button class="btn icon icon-left btn-outline-warning" data-toggle="modal"
             data-target="#update_modal{{ $rk->id }}"><i
                 data-feather="alert-triangle" class="fas fa-edit"></i></button>
         <form action="{{ route('rak.destroy', $rk->id) }}" method="POST"
             class="d-inline">
             @csrf
             @method('DELETE')
-            <button class="btn icon icon-left btn-danger"><i
+            <button class="btn icon icon-left btn-outline-danger"><i
                     data-feather="alert-circle" class="fas fa-trash-alt"></i>
             </button>
         </form>

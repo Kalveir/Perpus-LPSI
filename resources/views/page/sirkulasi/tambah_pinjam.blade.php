@@ -16,7 +16,7 @@ Tambah Peminjaman
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Tanggal Pinjam : </label>
-                <input class="form-control" type="date" placeholder="Tanggal Pinjam" name="tanggal_pinjam" required>
+                <input class="form-control" type="date" id="tanggal_pinjam" placeholder="Tanggal Pinjam" name="tanggal_pinjam" required>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Lama Peminjaman :</label>
@@ -153,5 +153,8 @@ Tambah Peminjaman
             $("#data_tabel_input").val(JSON.stringify(array_data));
         }
         
+    </script>
+    <script>
+        document.getElementById('tanggal_pinjam').valueAsDate = new Date();
     </script>
 @endsection

@@ -59,3 +59,5 @@ Route::get('/peminjaman',[SirkulasiController::class,'pinjam'])->name('sirkulasi
 Route::get('/pengembalian',[SirkulasiController::class,'kembali'])->name('sirkulasi.kembali');
 Route::get('/tambah-pinjam',[SirkulasiController::class,'create'])->name('sirkulasi.tambah');
 Route::post('/input-pinjam',[SirkulasiController::class,'store'])->name('sirkulasi.store');
+Route::get('/pinjam/info/{id}',[SirkulasiController::class,'info'])->name('pinjam.info');
+Route::delete('/pinjam/hapus/{id}',[SirkulasiController::class,'destroy'])->name('pinjam.destroy');

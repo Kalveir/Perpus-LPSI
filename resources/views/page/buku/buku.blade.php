@@ -6,7 +6,7 @@ Buku
 Daftar Buku Perpustakaan
 @endsection
 @section('button')
-<a href="{{ route('buku.create') }}" class="btn btn-primary">
+<a href="{{ route('buku.create') }}" class="btn btn-outline-primary">
 	<i class="fas fa-plus"></i><span>Tambah Buku</span>
 </a>
 @endsection
@@ -49,12 +49,12 @@ Daftar Buku Perpustakaan
 						<div class="d-flex center-content-between">
 							<form action="{{ route('buku.info',$bk->id) }}">
 								@csrf
-								<button class="btn btn-primary"><i class="fas fa-info"></i></button>
+								<button class="btn btn-outline-primary"><i class="fas fa-info"></i></button>
 							</form>
 							<form action="{{ route('buku.destroy',$bk->id) }}" method="POST">
 								@csrf
 								@method('DELETE')
-								<button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+								<button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
 							</form>
 						</div>
 					</td>
