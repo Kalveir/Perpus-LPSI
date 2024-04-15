@@ -44,7 +44,7 @@ Info Buku
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Tanggal masuk :</label><br>
-      <span>{{ $buku->tanggal_masuk }}</span>
+      <span>{{ date('d-m-Y',strtotime($buku->tanggal_masuk)) }}</span>
     </div>
   </div>
   <div class="col-md-6">

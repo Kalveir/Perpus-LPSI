@@ -63,13 +63,14 @@ Tambah Peminjaman
                     </button>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped" id="basic-datatables">
+                    <table class="table table-bordered table-striped" id="example1">
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama</th>
-                                <th>Progam Studi</th>
-                                <th>Jabatan</th>
+                                <th>Judul</th>
+                                <th>Penuli</th>
+                                <th>Tahun Terbit</th>
+                                <th>Jumlah</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

@@ -27,7 +27,7 @@ Daftar Pengunjung
       <td>{{ $png->alamat }}</td>
       <td>{{ $png->jenis_kelamin }}</td>
       <td>{{ $png->tujuan }}</td>
-      <td>{{ $png->tanggal }}</td>
+      <td>{{ date('d-m-Y',strtotime($png->tanggal)) }}</td>
 		</tr> 
     @endforeach
 	</tbody>

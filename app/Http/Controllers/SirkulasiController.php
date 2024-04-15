@@ -70,6 +70,45 @@ class SirkulasiController extends Controller
     {
         $pinjam = Pinjam::find($id);
         $pinjaman = Pinjaman::where('pinjam_id',$id)->get();
-        return $pinjaman;
+        $denda = NominalDenda::first();
+        return view('page.sirkulasi.info_pinjam',compact('pinjam','pinjaman','denda'));
+    }
+
+    public function return($id)
+    {
+        $pinjam = Pinjam::find($id);
+        $pinjaman = Pinjaman::where('pinjam_id',$id)->get();
+        $denda = NominalDenda::first();
+        // mengetahui jumlah buku
+        $jumlah = 0;
+        foreach($pinjaman as $data_pinjam)
+        {
+          if($data_pinjam->pinjam_id == $pinjam->id)
+          {
+            $jumlah++; 
+          }
+        }
+        //menghitung nominal denda
+        $tanggal = $pinjam->tgl_kembali;
+        $todays = date('Y-m-d');
+        $tanggal_1 = strtotime($tanggal);
+        $tanggal_2 = strtotime($todays);
+        $range = $tanggal_2-$tanggal_1;
+        $acumulate = $range / 60 / 60 / 24;
+
+        if($acumulate > 0)
+        {
+          $denda = $acumulate * $denda->nominal;
+          $jumlah_denda =  $denda * $jumlah;
+        }else {
+          $jumlah_denda = 0;
+        }
+
+        // update data peminjaman
+        $pinjam->tgl_balik = $todays;
+        $pinjam->denda = $jumlah_denda;
+        $pinjam->status = 1;
+        $pinjam->save();
+        return redirect()->route('sirkulasi.pinjam');
     }
 }

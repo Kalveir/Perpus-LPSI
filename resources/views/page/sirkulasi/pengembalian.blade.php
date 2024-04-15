@@ -6,7 +6,7 @@ Pengembalian Buku
 Daftar Pengembalian Buku
 @endsection
 @section('content')
-<div class="row table-responsive">
+<div class="table-responsive">
   <table id="example1" class="table table-bordered table-striped">
     <thead>
       <tr>
