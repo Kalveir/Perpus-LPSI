@@ -3,6 +3,7 @@
 use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\RakKategoriController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\DendaController;
 use App\Http\Controllers\SirkulasiController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,5 +61,10 @@ Route::get('/pengembalian',[SirkulasiController::class,'kembali'])->name('sirkul
 Route::get('/tambah-pinjam',[SirkulasiController::class,'create'])->name('sirkulasi.tambah');
 Route::post('/input-pinjam',[SirkulasiController::class,'store'])->name('sirkulasi.store');
 Route::get('/pinjam/info/{id}',[SirkulasiController::class,'info'])->name('pinjam.info');
-Route::delete('/pinjam/hapus/{id}',[SirkulasiController::class,'destroy'])->name('pinjam.destroy');
+Route::delete('/kembali/hapus/{id}',[SirkulasiController::class,'destroy'])->name('pinjam.destroy');
 Route::post('/pinjam/kembalikan/{id}',[SirkulasiController::class,'return'])->name('sirkulasi.kembalikan');
+Route::get('/pengembalian/info/{id}',[SirkulasiController::class,'detail'])->name('kembali.info');
+
+//denda
+Route::get('/denda',[DendaController::class,'index'])->name('denda.index');
+Route::put('/denda/update/{id}',[DendaController::class,'update'])->name('denda.update');

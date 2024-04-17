@@ -36,7 +36,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="{{ route('pengunjung.create') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-address-book"></i>
               <p>
                 Buku Pengunjung
               </p>
@@ -44,7 +44,7 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('pengunjung.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-address-card"></i>
               <p>
                 Pengunjung
               </p>
@@ -52,7 +52,7 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('rak.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-th-list"></i>
               <p>
                 Rak Buku
               </p>
@@ -60,7 +60,7 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('kategori.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-cubes"></i>
               <p>
                 Kategori Buku
               </p>
@@ -68,7 +68,7 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('buku.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
                 Daftar Buku
               </p>
@@ -96,6 +96,14 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('denda.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-coins"></i>
+              <p>
+                Denda
+              </p>
+            </a>
           </li>
         </ul>
       </nav>

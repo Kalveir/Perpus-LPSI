@@ -54,8 +54,8 @@ Daftar Peminjaman Buku
 
           if($acumulate > 0)
           {
-            $denda = $acumulate * $denda->nominal;
-            $jumlah_denda =  $denda * $jumlah;
+            $hitung_denda = $acumulate * $denda->nominal;
+            $jumlah_denda =  $hitung_denda * $jumlah;
           }else {
             $jumlah_denda = 0;
           }

@@ -19,7 +19,9 @@ class SirkulasiController extends Controller
 
     public function kembali()
     {
-        return view('page.sirkulasi.pengembalian');
+        $pinjam = Pinjam::where('status',1)->get();
+        $pinjaman = Pinjaman::get();
+        return view('page.sirkulasi.pengembalian',compact('pinjam','pinjaman'));
     }
 
     public function create()
@@ -31,7 +33,7 @@ class SirkulasiController extends Controller
     public function store(Request $request)
     {
         // return $request;
-        if ($request->data_tabel == null)
+        if ($request->data_tabel == null || $request->lama < 1)
         {
             return back();
         }else 
@@ -79,12 +81,19 @@ class SirkulasiController extends Controller
         $pinjam = Pinjam::find($id);
         $pinjaman = Pinjaman::where('pinjam_id',$id)->get();
         $denda = NominalDenda::first();
+
         // mengetahui jumlah buku
         $jumlah = 0;
         foreach($pinjaman as $data_pinjam)
         {
           if($data_pinjam->pinjam_id == $pinjam->id)
           {
+            //menambah jumlah buku
+            $buku = Buku::find($data_pinjam->buku_id);
+            $jumlah_buku = $buku->jumlah + 1;
+            $buku->jumlah = $jumlah_buku;
+            $buku->save();
+
             $jumlah++; 
           }
         }
@@ -110,5 +119,27 @@ class SirkulasiController extends Controller
         $pinjam->status = 1;
         $pinjam->save();
         return redirect()->route('sirkulasi.pinjam');
+    }
+
+    public function detail($id)
+    {
+        $pinjam = Pinjam::find($id);
+        $pinjaman = Pinjaman::where('pinjam_id',$id)->get();
+        return view('page.sirkulasi.info_pengembalian',compact('pinjam','pinjaman'));
+
+    }
+
+    public function destroy($id)
+    {
+        $pinjaman = Pinjaman::where('pinjam_id',$id)->get();
+        foreach($pinjaman as $pjn)
+        {
+            $pjn->delete();
+        }
+        $pinjam = Pinjam::find($id);
+        $pinjam->delete();
+        return redirect()->route('sirkulasi.kembali');
+
+
     }
 }

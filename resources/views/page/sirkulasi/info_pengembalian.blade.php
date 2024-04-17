@@ -1,9 +1,9 @@
 @extends('.layout.main')
 @section('title')
-Info Peminjam
+Info Pengembalian
 @endsection
 @section('judul')
-Info Peminjam
+Info Pengembalian
 @endsection
 @section('content')
 <div class="row">
@@ -72,30 +72,14 @@ Info Peminjam
       <label for="exampleInputEmail1">Jumlah Buku Dipinjam :</label><br>
       <span>{{ $jumlah.' buku' }}</span>
     </div>
-    @php
-      $tanggal = $pinjam->tgl_kembali;
-      $todays = date('Y-m-d');
-      $tanggal_1 = strtotime($tanggal);
-      $tanggal_2 = strtotime($todays);
-      $range = $tanggal_2-$tanggal_1;
-      $acumulate = $range / 60 / 60 / 24;
-
-      if($acumulate > 0)
-      {
-        $denda = $acumulate * $denda->nominal;
-        $jumlah_denda =  $denda * $jumlah;
-      }else {
-        $jumlah_denda = 0;
-      }
-    @endphp
     <div class="form-group">
       <label for="exampleInputEmail1">Jumlah Denda :</label><br>
-      <span>{{ 'Rp '.number_format($jumlah_denda,0,',','.') }}</span>
+      <span>{{ 'Rp '.number_format($pinjam->denda,0,',','.') }}</span>
     </div>
-    <form action="{{ route('sirkulasi.kembalikan',$pinjam->id) }}" method="POST">
-      @csrf 
-      <button type="submit" class="btn btn-success"><i class="fas fa-external-link-square-alt"></i><span> Pengembalian</span></button>
-    </form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Tanggal Pengembalian :</label><br>
+      <span>{{ date('d-m-Y',strtotime($pinjam->tgl_balik)) }}</span>
+    </div>
   </div>
 </div>
 @endsection

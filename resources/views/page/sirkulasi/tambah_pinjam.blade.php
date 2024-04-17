@@ -27,10 +27,11 @@ Tambah Peminjaman
                      Pilih Buku
                 </button>
             </div>
+            <br>
             <div class="col-md-8">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="mainTable">
-                        <thead class="thead-grey">
+                        <thead class="thead-dark">
                             <tr>
                               <th>No.</th>
                               <th>Buku</th>

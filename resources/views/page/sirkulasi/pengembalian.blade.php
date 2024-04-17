@@ -21,9 +21,41 @@ Daftar Pengembalian Buku
       </tr>	
     </thead>
     <tbody>
+      @foreach($pinjam as $pjm)
       <tr>
-        <td></td>
+        <td>{{ $loop->iteration }}</td>
+        <td>{{ $pjm->nama }}</td>
+        <td>{{ date('d-m-Y',strtotime($pjm->tgl_pinjam)) }}</td>
+        <td>{{ date('d-m-Y',strtotime($pjm->tgl_kembali)) }}</td>
+        {{-- menghitung jumlah buku --}}
+        @php
+          $jumlah = 0;
+          foreach($pinjaman as $data_pinjam)
+          {
+            if($data_pinjam->pinjam_id == $pjm->id)
+            {
+              $jumlah++; 
+            }
+          }
+        @endphp
+        <td>{{ $jumlah }}</td>
+        <td>{{ 'Rp '.number_format($pjm->denda,0,',','.') }}</td>
+        <td>{{ date('d-m-Y',strtotime($pjm->tgl_kembali)) }}</td>
+        <td>
+          <div class="d-flex center-content-between">
+            <form action="{{ route('kembali.info',$pjm->id) }}">
+              @csrf
+              <button class="btn btn-outline-primary"><i class="fas fa-eye"></i></button>
+            </form>
+            <form action="{{ route('pinjam.destroy',$pjm->id) }}" method="post">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+            </form>
+          </div>
+        </td>
       </tr>
+      @endforeach
     </tbody>
   </table>
 </div>
