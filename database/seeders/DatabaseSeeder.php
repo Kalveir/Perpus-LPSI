@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\NominalDenda;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,5 +25,38 @@ class DatabaseSeeder extends Seeder
         NominalDenda::create([
             'nominal' =>  2000, 
         ]);
+
+        //membuat User
+        $users = [
+            [
+                'name' => 'Yoga',
+                'email' => 'yoga@gmail.com',
+                'password' => bcrypt(123),
+            ],
+            [
+                'name' => 'Krisna',
+                'email' => 'krisna@gmail.com',
+                'password' => bcrypt(123),
+
+            ],
+        ];
+
+        foreach ($users as $usr) 
+        {
+            User::create($usr);    
+        }
+
+        Role::create(['name' => 'Petugas']);
+        Role::create(['name' => 'Pengunjung']);
+
+        $petugas = User::where('id',1)->first();
+        $pengunjung = User::where('id',2)->first();
+
+        $jabatan_petugas = Role::findById(1);
+        $jabatan_pengunjung = Role::findById(2);
+
+        $petugas->assignRole($jabatan_petugas);
+        $pengunjung->assignRole($jabatan_pengunjung);
+
     }
 }

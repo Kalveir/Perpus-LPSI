@@ -3,8 +3,11 @@
 use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\RakKategoriController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\DendaController;
 use App\Http\Controllers\SirkulasiController;
+use Spatie\Permission\Models\Role;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,15 +21,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/role-regist',[UserController::class, 'role'])->name('role');
+Route::get('/',[UserController::class,'login'])->name('login')->middleware('guest');
 // Route::get('/hello', function () {
 //     return view('blank');
 // });
-// Route::get('/tabel', function () {
-//     return view('tabel');
-// });
+
 
 //kelola pengunjung
 Route::get('/pengunjung',[PengunjungController::class,'listPengunjung'])->name('pengunjung.index');
