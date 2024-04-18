@@ -32,7 +32,7 @@ Daftar Rak
             @csrf
             @method('DELETE')
             {{-- pesan hapus --}}
-            <button class="btn icon icon-left btn-outline-danger" onclick="return confirm('Anda yakin menhapus rak ini ?');><i
+            <button class="btn icon icon-left btn-outline-danger"><i
                     data-feather="alert-circle" class="fas fa-trash-alt"></i>
             </button>
         </form>

@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('pinjams', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
+            $table->uuid('id')->unique();
+            $table->string('nama')->nullable();
             $table->integer('status');
-            $table->date('tgl_pinjam');
-            $table->integer('lama_pinjam');
-            $table->date('tgl_balik');
-            $table->date('tgl_kembali');
-            $table->string('denda');
+            $table->date('tgl_pinjam')->nullable();
+            $table->integer('lama_pinjam')->nullable();
+            $table->date('tgl_balik')->nullable();
+            $table->date('tgl_kembali')->nullable();
+            $table->string('denda')->nullable();
             $table->timestamps();
         });
 

@@ -14,22 +14,22 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('bukus', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->unique();
             $table->foreignId('kategori_id')->constrained();
             $table->foreignId('rak_id')->constrained();
-            $table->string('sampul');
-            $table->string('isbn');
-            $table->string('judul');
-            $table->string('penerbit');
-            $table->string('penulis');
-            $table->integer('tahun');
-            $table->integer('isi');
-            $table->integer('jumlah');
-            $table->string('tanggal_masuk');
-            $table->string('no_induk');
-            $table->string('rf_id');
-            $table->string('no_barcode');
-            $table->string('peroleh');
+            $table->string('sampul')->nullable();
+            $table->string('isbn')->nullable();
+            $table->string('judul')->nullable();
+            $table->string('penerbit')->nullable();
+            $table->string('penulis')->nullable();
+            $table->integer('tahun')->nullable();
+            $table->integer('isi')->nullable();
+            $table->integer('jumlah')->nullable();
+            $table->string('tanggal_masuk')->nullable();
+            $table->string('no_induk')->nullable();
+            $table->string('rf_id')->nullable();
+            $table->string('no_barcode')->nullable();
+            $table->string('peroleh')->nullable();
             $table->timestamps();
         });
 

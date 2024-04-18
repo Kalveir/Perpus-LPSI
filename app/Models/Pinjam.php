@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Pinjam extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
 
     /**
      * The attributes that are mass assignable.
@@ -30,7 +31,6 @@ class Pinjam extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
         'tgl_pinjam' => 'date',
         'tgl_balik' => 'date',
         'tgl_kembali' => 'date',

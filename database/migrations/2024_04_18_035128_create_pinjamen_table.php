@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('pinjamen', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pinjam_id')->constrained();
-            $table->foreignId('buku_id')->constrained();
+            $table->foreignUuid('pinjam_id')->constrained();
+            $table->foreignUuid('buku_id')->constrained();
             $table->timestamps();
         });
 

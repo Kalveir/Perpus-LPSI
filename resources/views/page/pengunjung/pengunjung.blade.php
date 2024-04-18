@@ -6,6 +6,11 @@ Pengunjung
 Daftar Pengunjung
 @endsection
 @section('content')
+@section('button')
+<a href="" class="btn btn-outline-success">
+	<i class="fas fa-file-download"></i><span> Download Data Pengunjung</span>
+</a>
+@endsection
 <table id="example1" class="table table-bordered table-striped">
 	<thead>
 		<tr>

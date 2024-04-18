@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('pengunjungs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('instansi');
-            $table->string('alamat');
-            $table->string('jenis_kelamin');
-            $table->string('tujuan');
-            $table->string('tanggal');
+            $table->string('nama')->nullable();
+            $table->string('instansi')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('jenis_kelamin')->nullable();
+            $table->string('tujuan')->nullable();
+            $table->string('tanggal')->nullable();
             $table->timestamps();
         });
     }

@@ -9,6 +9,12 @@ Daftar Buku Perpustakaan
 <a href="{{ route('buku.create') }}" class="btn btn-outline-primary">
 	<i class="fas fa-plus"></i><span>Tambah Buku</span>
 </a>
+<a href="#" class="btn btn-outline-success">
+	<i class="fas fa-file-import"></i><span> Import Data Buku</span>
+</a>
+<a href="#" class="btn btn-outline-dark">
+	<i class="fas fa-file-download"></i><span> Download File Import</span>
+</a>
 @endsection
 @section('content')
 <div class="row table-responsive">
@@ -20,7 +26,6 @@ Daftar Buku Perpustakaan
 				 <th>Judul</th>
 				 <th>Kategori</th>
 				 <th>Rak</th>
-				 <th>ISBN</th>
 				 <th>Penerbit</th>
 				 <th>Penulis</th>
 				 <th>Tahun</th>
@@ -32,16 +37,22 @@ Daftar Buku Perpustakaan
 				<tr>
 					<td>{{ $loop->iteration }}</td>
 					<td>
-						<img src="{{ asset('storage/sampul/' . $bk->sampul) }}"
-						width="100px"
-						height="auto"
-						alt="sampul_buku">
+						@if($bk->sampul != null )
+							<img src="{{ asset('storage/sampul/' . $bk->sampul) }}"
+							width="100px"
+							height="auto"
+							alt="sampul_buku">
+						@else
+							<img src="{{ asset('icon/book.png') }}"
+							width="100px"
+							height="auto"
+							alt="sampul_buku">
+						@endif
 						
 					</td>
 					<td>{{ $bk->judul }}</td>
 					<td>{{ $bk->kategori->nama }}</td>
 					<td>{{ $bk->rak->nama }}</td>
-					<td>{{ $bk->isbn }}</td>
 					<td>{{ $bk->penerbit }}</td>
 					<td>{{ $bk->penulis }}</td>
 					<td>{{ $bk->tahun }}</td>

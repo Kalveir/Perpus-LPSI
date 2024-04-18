@@ -27,8 +27,6 @@ class Pinjaman extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'pinjam_id' => 'integer',
-        'buku_id' => 'integer',
     ];
 
     public function pinjam(): BelongsTo
