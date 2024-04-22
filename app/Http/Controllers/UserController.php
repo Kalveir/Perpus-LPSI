@@ -12,7 +12,7 @@ class UserController extends Controller
 
     public function login()
     {
-        return view('login');
+        return view('page.login');
     }
 
     public function autenticate(Request $request) : RedirectResponse
