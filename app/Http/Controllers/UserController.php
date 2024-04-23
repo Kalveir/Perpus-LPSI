@@ -15,19 +15,19 @@ class UserController extends Controller
         return view('page.login');
     }
 
-    public function autenticate(Request $request) : RedirectResponse
+    public function autenticate(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required'],
             'password' => ['required'],
         ]);
 
-        // $credential = $request->only('email','password');
-        $user = User::where('email', $credentials['email'])->first();
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)) 
+        {
             $request->session()->regenerate();
-            return redirect()->intended('buku.index');
-        } else {
+            return redirect()->intended('home');
+        }else{
+            Alert::error('Login Gagal', 'Periksa Username & Password anda');
             return redirect()->back();
         }
     }
@@ -36,5 +36,17 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect('/');
+    }
+
+    public function Home()
+    {
+        if(Auth::user()->hasRole(['Petugas']))
+        {
+            return redirect()->route('buku.index');
+        }
+        else if(Auth::user()->hasRole(['Pengunjung']))
+        {
+            return redirect()->route('pengunjung.create');
+        }    
     }
 }

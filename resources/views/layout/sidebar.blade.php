@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{ asset('/icon/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Perpus LPSI RUMBES</span>
+      <span class="brand-text font-weight-light">LPSI RUMBES</span>
     </a>
 
     <!-- Sidebar -->
@@ -34,6 +34,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+          @role('Pengunjung')
           <li class="nav-item">
             <a href="{{ route('pengunjung.create') }}" class="nav-link">
               <i class="nav-icon fas fa-address-book"></i>
@@ -42,6 +43,8 @@
               </p>
             </a>
           </li>
+          @endrole
+          @role('Petugas')
           <li class="nav-item">
             <a href="{{ route('pengunjung.index') }}" class="nav-link">
               <i class="nav-icon fas fa-address-card"></i>
@@ -50,6 +53,8 @@
               </p>
             </a>
           </li>
+          @endrole
+          @role('Petugas')
           <li class="nav-item">
             <a href="{{ route('rak.index') }}" class="nav-link">
               <i class="nav-icon fas fa-th-list"></i>
@@ -58,6 +63,8 @@
               </p>
             </a>
           </li>
+          @endrole
+          @role('Petugas')
           <li class="nav-item">
             <a href="{{ route('kategori.index') }}" class="nav-link">
               <i class="nav-icon fas fa-cubes"></i>
@@ -66,6 +73,7 @@
               </p>
             </a>
           </li>
+          @endrole
           <li class="nav-item">
             <a href="{{ route('buku.index') }}" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -74,6 +82,7 @@
               </p>
             </a>
           </li>
+          @role('Petugas')
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-random"></i>
@@ -97,6 +106,8 @@
               </li>
             </ul>
           </li>
+          @endrole
+          @role('Petugas')
           <li class="nav-item">
             <a href="{{ route('denda.index') }}" class="nav-link">
               <i class="nav-icon fas fa-coins"></i>
@@ -105,6 +116,7 @@
               </p>
             </a>
           </li>
+          @endrole
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

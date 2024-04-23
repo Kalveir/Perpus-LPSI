@@ -16,20 +16,21 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <div class="login-logo">
-    <img src="{{ asset('/icon/logo.png') }}" width="90" 
-    alt="Logo Univeristas Merdeka Pasuruan" 
-    class="img-fluid mb-3"><br>
-    <a href="#"><b>Sistem Perpustakaan <br></b>LPSI RUMBES</a>
-  </div>
   <!-- /.login-logo -->
   <div class="card">
+    <div class="login-logo">
+      <img src="{{ asset('/icon/logo.png') }}" width="90" 
+      alt="Logo Univeristas Merdeka Pasuruan" 
+      class="img-fluid mb-3"><br>
+      <a href="#"><b>Sistem Perpustakaan <br></b>LPSI RUMBES</a>
+    </div>
     <div class="card-body login-card-body">
       <p class="login-box-msg"></p>
 
-      <form action="{{ asset('#') }}" method="post">
+      <form action="/autentikasi" method="POST">
+        @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" autofocus required>
+          <input type="email" class="form-control" placeholder="Email" autofocus required name="email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -37,7 +38,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" required>
+          <input type="password" class="form-control" placeholder="Password" required name="password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
