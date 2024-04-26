@@ -6,6 +6,7 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DendaController;
 use App\Http\Controllers\SirkulasiController;
+use App\Http\Controllers\DashboardController;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::get('/',[UserController::class,'login'])->name('login')->middleware('gues
 Route::post('/autentikasi',[UserController::class,'autenticate'])->name('autenticate')->middleware('guest');
 Route::post('/logout',[UserController::class,'Logout'])->name('logout')->middleware('auth');
 Route::get('/home',[UserController::class,'Home'])->name('home')->middleware('auth');
+Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard')->middleware('auth');
 // Route::get('/hello', function () {
 //     return view('blank');
 // });

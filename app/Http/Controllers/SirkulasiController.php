@@ -53,7 +53,7 @@ class SirkulasiController extends Controller
             if (is_array($data_tabel)) {
                 foreach ($data_tabel as $data) {
                     //selisihkan buku
-                    $buku = Buku::find($data);
+                    $buku = Buku::where('id',$data)->first();
                     $selisih = $buku->jumlah - 1;
                     $buku->jumlah = $selisih;
                     $buku->save();

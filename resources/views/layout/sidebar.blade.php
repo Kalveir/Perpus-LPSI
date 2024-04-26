@@ -13,7 +13,7 @@
           <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -40,6 +40,16 @@
               <i class="nav-icon fas fa-address-book"></i>
               <p>
                 Buku Pengunjung
+              </p>
+            </a>
+          </li>
+          @endrole
+          @role('Petugas')
+          <li class="nav-item">
+            <a href="{{ route('dashboard') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Dashboard
               </p>
             </a>
           </li>
