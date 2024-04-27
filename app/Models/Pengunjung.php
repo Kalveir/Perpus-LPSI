@@ -19,6 +19,7 @@ class Pengunjung extends Model
         'instansi',
         'alamat',
         'jenis_kelamin',
+        'tahun',
         'tujuan',
         'tanggal',
     ];

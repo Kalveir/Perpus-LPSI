@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Kategori;
 use Illuminate\Database\Seeder;
 use App\Models\NominalDenda;
+use App\Models\Rak;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 
@@ -45,6 +48,21 @@ class DatabaseSeeder extends Seeder
         {
             User::create($usr);    
         }
+        //membuat Rak
+        for($i = 1;$i<= 3;$i++)
+        {
+            Rak::create([
+                'nama' => 'Rak '.$i,
+            ]);
+        }
+
+        //Kategori
+        Kategori::create([
+            'nama' => 'Peternakan',
+        ]);
+        Kategori::create([
+            'nama'=>'Pertanian',
+        ]);
 
         Role::create(['name' => 'Petugas']);
         Role::create(['name' => 'Pengunjung']);

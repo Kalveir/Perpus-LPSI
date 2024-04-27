@@ -25,6 +25,7 @@ class PengunjungFactory extends Factory
             'instansi' => $this->faker->word(),
             'alamat' => $this->faker->word(),
             'jenis_kelamin' => $this->faker->word(),
+            'tahun' => $this->faker->numberBetween(-10000, 10000),
             'tujuan' => $this->faker->word(),
             'tanggal' => $this->faker->word(),
         ];

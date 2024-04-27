@@ -56,6 +56,16 @@
           @endrole
           @role('Petugas')
           <li class="nav-item">
+            <a href="{{ route('user.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Pengguna
+              </p>
+            </a>
+          </li>
+          @endrole
+          @role('Petugas')
+          <li class="nav-item">
             <a href="{{ route('pengunjung.index') }}" class="nav-link">
               <i class="nav-icon fas fa-address-card"></i>
               <p>

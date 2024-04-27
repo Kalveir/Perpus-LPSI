@@ -9,44 +9,22 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-
-    public function login()
+    public function index()
     {
-        return view('page.login');
+        $usr = User::get();
+        return view('page.user.user',compact('usr'));
     }
 
-    public function autenticate(Request $request)
+    public function update(Request $request,$id)
     {
-        $credentials = $request->validate([
-            'email' => ['required'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::attempt($credentials)) 
+        $user = User::find($id);
+        $user->name = $request->nama;
+        $user->email = $request->email;
+        if($request->password != null)
         {
-            $request->session()->regenerate();
-            return redirect()->intended('home');
-        }else{
-            Alert::error('Login Gagal', 'Periksa Username & Password anda');
-            return redirect()->back();
+            $user->password = bcrypt($request->password);
         }
-    }
-
-    public function Logout()
-    {
-        Auth::logout();
-        return redirect('/');
-    }
-
-    public function Home()
-    {
-        if(Auth::user()->hasRole(['Petugas']))
-        {
-            return redirect()->route('buku.index');
-        }
-        else if(Auth::user()->hasRole(['Pengunjung']))
-        {
-            return redirect()->route('pengunjung.create');
-        }    
+        $user->save();
+        return redirect()->route('user.index');
     }
 }

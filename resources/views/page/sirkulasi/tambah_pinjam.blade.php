@@ -145,10 +145,10 @@ Tambah Peminjaman
             $("#mainTable tbody tr").each(function() {
                 var id_users = $(this).find('td:eq(1)').text().trim();
                 // Konversi nilai id_users ke integer
-                var id_users_integer = parseInt(id_users, 10);
+                // var id_users_integer = parseInt(id_users, 10);
 
                 // Pastikan bahwa ID yang diambil sesuai dengan struktur yang diharapkan
-                array_data.push(id_users_integer);
+                array_data.push(id_users);
             });
 
             // Perbarui nilai input tersembunyi dengan data sebagai array langsung

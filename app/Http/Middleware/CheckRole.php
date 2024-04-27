@@ -18,6 +18,6 @@ class CheckRole
         if($request->user() && $request->user()->hasRole($role)){
             return $next($request);
         }
-        abort(403, 'Unauthorization action.')
+        abort(403, 'Unauthorization action.');
     }
 }

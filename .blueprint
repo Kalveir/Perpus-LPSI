@@ -6,13 +6,13 @@ created:
     - database/factories/BukuFactory.php
     - database/factories/PinjamFactory.php
     - database/factories/PinjamanFactory.php
-    - database/migrations/2024_04_18_035122_create_pengunjungs_table.php
-    - database/migrations/2024_04_18_035123_create_nominal_dendas_table.php
-    - database/migrations/2024_04_18_035124_create_kategoris_table.php
-    - database/migrations/2024_04_18_035125_create_raks_table.php
-    - database/migrations/2024_04_18_035126_create_bukus_table.php
-    - database/migrations/2024_04_18_035127_create_pinjams_table.php
-    - database/migrations/2024_04_18_035128_create_pinjamen_table.php
+    - database/migrations/2024_04_27_051754_create_pengunjungs_table.php
+    - database/migrations/2024_04_27_051755_create_nominal_dendas_table.php
+    - database/migrations/2024_04_27_051756_create_kategoris_table.php
+    - database/migrations/2024_04_27_051757_create_raks_table.php
+    - database/migrations/2024_04_27_051758_create_bukus_table.php
+    - database/migrations/2024_04_27_051759_create_pinjams_table.php
+    - database/migrations/2024_04_27_051800_create_pinjamen_table.php
     - app/Models/Pengunjung.php
     - app/Models/NominalDenda.php
     - app/Models/Kategori.php
@@ -21,8 +21,8 @@ created:
     - app/Models/Pinjam.php
     - app/Models/Pinjaman.php
 models:
-    User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
-    Pengunjung: { id: id, nama: 'string nullable', instansi: 'string nullable', alamat: 'string nullable', jenis_kelamin: 'string nullable', tujuan: 'string nullable', tanggal: 'string nullable' }
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Pengunjung: { id: id, nama: 'string nullable', instansi: 'string nullable', alamat: 'string nullable', jenis_kelamin: 'string nullable', tahun: integer, tujuan: 'string nullable', tanggal: 'string nullable' }
     NominalDenda: { id: id, nominal: integer }
     Kategori: { id: id, nama: string }
     Rak: { id: id, nama: string }

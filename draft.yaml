@@ -5,6 +5,7 @@ models:
     instansi : string nullable
     alamat : string nullable
     jenis_kelamin : string nullable
+    tahun : integer
     tujuan : string nullable
     tanggal : string nullable
 
