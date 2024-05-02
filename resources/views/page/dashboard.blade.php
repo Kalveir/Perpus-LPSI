@@ -16,7 +16,7 @@ Dashboard
 				<p>Pengunjung</p>
 			</div>
 			<div class="icon">
-				<i class="ion ion-bag"></i>
+				<i class="fas fa-address-card"></i>
 			</div>
 			<a href="{{ route('pengunjung.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
@@ -30,7 +30,7 @@ Dashboard
 				<p>Buku</p>
 			</div>
 			<div class="icon">
-				<i class="ion ion-bag"></i>
+				<i class="fas fa-book"></i>
 			</div>
 			<a href="{{ route('buku.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
@@ -44,7 +44,7 @@ Dashboard
 				<p>Peminjaman</p>
 			</div>
 			<div class="icon">
-				<i class="ion ion-bag"></i>
+				<i class="fas fa-sign-out-alt"></i>
 			</div>
 			<a href="{{ route('sirkulasi.pinjam') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
@@ -58,7 +58,7 @@ Dashboard
 				<p>Pengembalian</p>
 			</div>
 			<div class="icon">
-				<i class="ion ion-bag"></i>
+				<i class="fas fa-sign-in-alt"></i>
 			</div>
 			<a href="{{ route('sirkulasi.kembali') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 		</div>

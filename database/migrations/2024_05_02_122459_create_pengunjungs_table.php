@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('instansi')->nullable();
             $table->string('alamat')->nullable();
             $table->string('jenis_kelamin')->nullable();
-            $table->integer('tahun');
             $table->string('tujuan')->nullable();
-            $table->string('tanggal')->nullable();
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

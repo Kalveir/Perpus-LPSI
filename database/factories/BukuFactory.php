@@ -33,7 +33,7 @@ class BukuFactory extends Factory
             'tahun' => $this->faker->numberBetween(-10000, 10000),
             'isi' => $this->faker->numberBetween(-10000, 10000),
             'jumlah' => $this->faker->numberBetween(-10000, 10000),
-            'tanggal_masuk' => $this->faker->word(),
+            'tanggal_masuk' => $this->faker->date(),
             'no_induk' => $this->faker->word(),
             'rf_id' => $this->faker->word(),
             'no_barcode' => $this->faker->word(),

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('tahun')->nullable();
             $table->integer('isi')->nullable();
             $table->integer('jumlah')->nullable();
-            $table->string('tanggal_masuk')->nullable();
+            $table->date('tanggal_masuk');
             $table->string('no_induk')->nullable();
             $table->string('rf_id')->nullable();
             $table->string('no_barcode')->nullable();

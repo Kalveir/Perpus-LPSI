@@ -51,6 +51,7 @@ Route::middleware(['auth', 'role:Petugas'])->group(function (){
 
   //kelola pengunjung
   Route::get('/pengunjung',[PengunjungController::class,'listPengunjung'])->name('pengunjung.index')->middleware('auth');
+  Route::post('/pengunjung/download',[PengunjungController::class,'download'])->name('pengunjung.download')->middleware('auth');
 
   //kelola rak
   Route::get('/rak-buku',[RakKategoriController::class,'listRak'])->name('rak.index')->middleware('auth');

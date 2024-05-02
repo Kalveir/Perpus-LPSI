@@ -42,6 +42,7 @@ class Buku extends Model
     protected $casts = [
         'kategori_id' => 'integer',
         'rak_id' => 'integer',
+        'tanggal_masuk' => 'date',
     ];
 
     public function rak(): BelongsTo

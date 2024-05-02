@@ -5,9 +5,8 @@ models:
     instansi : string nullable
     alamat : string nullable
     jenis_kelamin : string nullable
-    tahun : integer
     tujuan : string nullable
-    tanggal : string nullable
+    tanggal : date
 
   NominalDenda :
     id : id
@@ -33,7 +32,7 @@ models:
     tahun : integer nullable
     isi : integer nullable
     jumlah : integer nullable
-    tanggal_masuk : string nullable
+    tanggal_masuk : date
     no_induk : string nullable
     rf_id : string nullable
     no_barcode : string nullable

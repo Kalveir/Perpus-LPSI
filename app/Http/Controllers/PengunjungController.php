@@ -31,4 +31,12 @@ class PengunjungController extends Controller
         $pengunjung->save();
         return redirect()->route('pengunjung.create');
     }
+
+    public function download(Request $request)
+    {
+        $awal = $request->dari_tanggal;
+        $akhir = $request->sampai_tanggal;
+        $pengunjung = Pengunjung::whereBetween('tanggal',[$awal,$akhir])->get();
+        // tambahkan logic export ke csv
+    }
 }

@@ -19,7 +19,6 @@ class Pengunjung extends Model
         'instansi',
         'alamat',
         'jenis_kelamin',
-        'tahun',
         'tujuan',
         'tanggal',
     ];
@@ -31,5 +30,6 @@ class Pengunjung extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'tanggal' => 'date',
     ];
 }
