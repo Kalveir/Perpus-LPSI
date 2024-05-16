@@ -34,9 +34,23 @@ class PengunjungController extends Controller
 
     public function download(Request $request)
     {
+        $tgl = date('d-m-Y');
         $awal = $request->dari_tanggal;
         $akhir = $request->sampai_tanggal;
-        $pengunjung = Pengunjung::whereBetween('tanggal',[$awal,$akhir])->get();
-        // tambahkan logic export ke csv
+        $pengunjung = Pengunjung::whereBetween('tanggal', [$awal, $akhir])->select('nama','instansi','alamat','jenis_kelamin','tujuan','tanggal')->get();
+        $nama_file = 'data_pengunjung_' . $tgl . '.csv'; 
+        $handle = fopen($nama_file, 'w+');
+        fputcsv($handle, array_keys($pengunjung->first()->toArray())); 
+        $pengunjung->each(function($item) use ($handle) {
+            fputcsv($handle, $item->toArray());
+        });
+        fclose($handle); 
+
+        return response()->streamDownload(function() use ($nama_file) {
+            $handle = fopen($nama_file, 'rb');
+            fpassthru($handle); 
+            fclose($handle); 
+        }, $nama_file);
     }
+
 }

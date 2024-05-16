@@ -103,4 +103,38 @@ class BukuController extends Controller
         $buku->delete();
         return redirect()->route('buku.index');
     }
+
+    public function download($Request request)
+    {
+        $file = $request->file('file'); // Ambil file CSV dari request
+
+        // Pastikan file CSV berhasil diunggah
+        if ($file->isValid() && $file->getClientOriginalExtension() === 'csv') {
+            $path = $file->getRealPath(); // Dapatkan path file CSV
+
+            // Buka file CSV
+            if (($handle = fopen($path, 'r')) !== false) {
+                // Baca baris demi baris
+                while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+                    $buku->judul = data[1];
+                    $buku->isbn = data[2];
+                    $buku->penulis = data[3];
+                    $buku->penerbit = data[4];
+                    $buku->kategori_id = data[5];
+                    $buku->rak_id = data[6];                   
+                    $buku->tahun = data[7];
+                    $buku->isi = data[8];                    
+                    $buku->jumlah = data[9];
+                    $buku->no_induk = data[10];
+                    $buku->rf_id = data[11];
+                    $buku->tanggal_masuk = data[12];
+                    $buku->no_barcode = data[13];
+                    $buku->peroleh = data[14];
+                    $buku->save();
+                }
+                fclose($handle); // Tutup file setelah selesai
+            }
+        }
+        return redirect()->route('buku.index');
+    }
 }
