@@ -71,6 +71,7 @@ Route::middleware(['auth', 'role:Petugas'])->group(function (){
   Route::get('/buku/edit/{id}',[BukuController::class,'edit'])->name('buku.edit')->middleware('auth');
   Route::put('/buku/update/{id}',[BukuController::class,'update'])->name('buku.update')->middleware('auth');
   Route::delete('/buku/delete/{id}',[BukuController::class, 'destroy'])->name('buku.destroy')->middleware('auth');
+  Route::post('/buku/upload',[BukuController::class,'upload'])->name('buku.upload')->middleware('auth');
 
   // kelola sirkulasi
   Route::get('/peminjaman',[SirkulasiController::class,'pinjam'])->name('sirkulasi.pinjam')->middleware('auth');

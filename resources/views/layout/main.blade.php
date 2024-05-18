@@ -111,6 +111,7 @@
 <script src="{{ asset('/dist/js/adminlte.js') }}"></script>
 <script src="{{ asset('/plugins/select2/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('/dist/js/pages/dashboard.js') }}"></script>
+<script src="{{ asset('/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 {{-- custom file --}}
 <script src="{{ asset('/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 
@@ -132,6 +133,11 @@
       theme: 'bootstrap4'
     })
   });
+</script>
+<script type="text/javascript">
+$(function () {
+  bsCustomFileInput.init();
+});
 </script>
 </body>
 </html>

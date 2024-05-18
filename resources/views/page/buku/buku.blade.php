@@ -9,12 +9,14 @@ Daftar Buku Perpustakaan
 <a href="{{ route('buku.create') }}" class="btn btn-outline-primary">
 	<i class="fas fa-plus"></i><span>Tambah Buku</span>
 </a>
-<a href="#" class="btn btn-outline-success">
-	<i class="fas fa-file-import"></i><span> Import Data Buku</span>
-</a>
+
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#input_modal">
+  <i class="fas fa-file-import"></i><span>Import Data Buku</span></button>
+
 <a href="#" class="btn btn-outline-dark">
-	<i class="fas fa-file-download"></i><span> Download File Import</span>
+	<i class="fas fa-file-download"></i><span> Download CSV File</span>
 </a>
+
 @endsection
 @section('content')
 <div class="row table-responsive">
@@ -73,5 +75,41 @@ Daftar Buku Perpustakaan
 			@endforeach
 		</tbody>
 	</table>
+</div>
+<div class="modal" id="input_modal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+          <!-- Header Modal -->
+          <div class="modal-header">
+              <h4 class="modal-title">Import Data Buku</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Body Modal -->
+          <div class="modal-body">
+              <!-- Form Input -->
+              <form action="{{ route('buku.upload') }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <div class="form-group">
+                      <label for="nama">Upload CSV File:</label>
+                      <div class="custom-file">
+	                        <input type="file" 
+	                        class="custom-file-input" 
+	                        name="file" 
+	                        accept=".csv">
+	                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                  </div>
+          </div>
+
+          <!-- Footer Modal -->
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+          </form>
+      </div>
+  </div>
 </div>
 @endsection
