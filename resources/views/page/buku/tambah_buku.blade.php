@@ -84,7 +84,7 @@ Tambah Buku
         <label for="formFile" class="form-label">Sampul Buku : </label>
         <span><small>*optional</small></span>
         <br>
-        <input type="file" class="form-controll" id="formFile" required data-max-file-size="5MB" name="sampul" accept=".jpeg, .jpg, .png">
+        <input type="file" class="form-controll" id="formFile" data-max-file-size="5MB" name="sampul" accept=".jpeg, .jpg, .png">
       </div>
     </div>
   </div>

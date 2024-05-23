@@ -51,6 +51,7 @@ class PengunjungController extends Controller
             fpassthru($handle); 
             fclose($handle); 
         }, $nama_file);
+        return redirect()->route('pengunjung.index');
     }
 
 }

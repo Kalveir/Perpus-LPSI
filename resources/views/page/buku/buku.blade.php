@@ -6,6 +6,7 @@ Buku
 Daftar Buku Perpustakaan
 @endsection
 @section('button')
+@role('Petugas')
 <a href="{{ route('buku.create') }}" class="btn btn-outline-primary">
 	<i class="fas fa-plus"></i><span>Tambah Buku</span>
 </a>
@@ -13,10 +14,10 @@ Daftar Buku Perpustakaan
 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#input_modal">
   <i class="fas fa-file-import"></i><span>Import Data Buku</span></button>
 
-<a href="#" class="btn btn-outline-dark">
+<a href="{{ asset('public/csv/data_buku.csv') }}" class="btn btn-outline-dark">
 	<i class="fas fa-file-download"></i><span> Download CSV File</span>
 </a>
-
+@endrole
 @endsection
 @section('content')
 <div class="row table-responsive">
