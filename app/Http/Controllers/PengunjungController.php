@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengunjung;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+
 
 class PengunjungController extends Controller
 {
@@ -37,21 +41,41 @@ class PengunjungController extends Controller
         $tgl = date('d-m-Y');
         $awal = $request->dari_tanggal;
         $akhir = $request->sampai_tanggal;
-        $pengunjung = Pengunjung::whereBetween('tanggal', [$awal, $akhir])->select('nama','instansi','alamat','jenis_kelamin','tujuan','tanggal')->get();
-        $nama_file = 'data_pengunjung_' . $tgl . '.csv'; 
-        $handle = fopen($nama_file, 'w+');
-        fputcsv($handle, array_keys($pengunjung->first()->toArray())); 
-        $pengunjung->each(function($item) use ($handle) {
-            fputcsv($handle, $item->toArray());
-        });
-        fclose($handle); 
 
-        return response()->streamDownload(function() use ($nama_file) {
-            $handle = fopen($nama_file, 'rb');
-            fpassthru($handle); 
-            fclose($handle); 
-        }, $nama_file);
-        return redirect()->route('pengunjung.index');
+        // Fetch data
+        $pengunjung = Pengunjung::whereBetween('tanggal', [$awal, $akhir])
+        ->select('nama', 'instansi', 'alamat', 'jenis_kelamin', 'tujuan', 'tanggal')
+        ->get();
+
+        // Create a temporary file
+        $filename = 'data_pengunjung_' . $tgl . '.csv';
+        $tempFile = Storage::disk('local')->path(Str::random(40) . '.csv');
+        $handle = fopen($tempFile, 'w+');
+
+        // Write CSV headers
+        if ($pengunjung->isNotEmpty()) {
+            fputcsv($handle, array_keys($pengunjung->first()->toArray()));
+        }
+
+        // Write CSV data
+        $pengunjung->each(function($item) use ($handle) {
+            $data = $item->toArray();
+            // Format the 'tanggal' field
+            $data['tanggal'] = Carbon::parse($data['tanggal'])->format('d-m-Y');
+            fputcsv($handle, $data);
+        });
+
+        fclose($handle);
+
+        return response()->streamDownload(function() use ($tempFile) {
+            $handle = fopen($tempFile, 'rb');
+            fpassthru($handle);
+            fclose($handle);
+            // Delete the file after streaming
+            unlink($tempFile);
+        }, $filename);
     }
+
+
 
 }
