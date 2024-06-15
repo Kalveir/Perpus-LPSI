@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-
+use Mckenziearts\Notify\LaravelNotifyServiceProvider;
 
 class PengunjungController extends Controller
 {
@@ -33,6 +33,7 @@ class PengunjungController extends Controller
         $pengunjung->tujuan = $request->tujuan;
         $pengunjung->tanggal = $tanggal;
         $pengunjung->save();
+        notify()->success('Berhasil');
         return redirect()->route('pengunjung.create');
     }
 
