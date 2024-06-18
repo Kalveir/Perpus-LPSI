@@ -30,21 +30,16 @@
   <link rel="stylesheet" href="{{ asset('/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('/plugins/summernote/summernote-bs4.min.css') }}">
-  @notifyCss
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-  @notifyJs
 <div class="wrapper">
-
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="{{ asset('/icon/logo.png')}}" alt="AdminLTELogo" height="60" width="60">
   </div>
-
   <!-- Navbar -->
   @include('layout.navbar')
   <!-- /.navbar -->
-
   <!-- Main Sidebar Container -->
   @include('layout.sidebar')
 
@@ -116,7 +111,6 @@
 <script src="{{ asset('/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 {{-- custom file --}}
 <script src="{{ asset('/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
-
 <script>
   $(function () {
     $("#example1").DataTable({

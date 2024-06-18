@@ -36,7 +36,7 @@ Buku Pengunjung
         <option>Meminjam</option>
       </select>
     </div>
-    <button class="btn btn-block btn-primary" type="submit">Simpan</button>
+    <button class="btn btn-block btn-outline-primary" type="submit">Simpan</button>
   </div>
 </form>
 @endsection
