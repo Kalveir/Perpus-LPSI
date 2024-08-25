@@ -27,12 +27,12 @@ Daftar Rak
         <button class="btn icon icon-left btn-outline-warning" data-toggle="modal"
             data-target="#update_modal{{ $rk->id }}"><i
                 data-feather="alert-triangle" class="fas fa-edit"></i></button>
-        <form action="{{ route('rak.destroy', $rk->id) }}" method="POST"
-            class="d-inline">
+        <form id="del-form" action="{{ route('rak.destroy', $rk->id) }}" method="POST"
+            class="d-inline" onsubmit="return confirmDelete();">
             @csrf
             @method('DELETE')
             {{-- pesan hapus --}}
-            <button class="btn icon icon-left btn-outline-danger"><i
+            <button id="del-button" class="btn icon icon-left btn-outline-danger"><i
                     data-feather="alert-circle" class="fas fa-trash-alt"></i>
             </button>
         </form>
@@ -110,4 +110,10 @@ Daftar Rak
       </div>
   </div>
 </div>
+<script>
+    function confirmDelete()
+    {
+        return confirm('Apakaha yakin menghapus Rak ini ?')
+    }
+</script>
 @endsection

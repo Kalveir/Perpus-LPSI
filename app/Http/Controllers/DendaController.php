@@ -18,6 +18,9 @@ class DendaController extends Controller
         $denda = NominalDenda::find($id);
         $denda->nominal = $request->denda;
         $denda->save();
-        return redirect()->route('denda.index');
+        return redirect()->route('denda.index')->with('alert',[
+            'type' => 'success',
+            'message' => 'Denda Diperbarui !'
+          ]);;
     }
 }

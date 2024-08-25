@@ -25,7 +25,10 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('home');
         }else{
-            return redirect()->back();
+            return redirect()->back()->with('alert',[
+                'type' => 'error',
+                'message' => 'Login Gagal !'
+              ]);;
         }
     }
 

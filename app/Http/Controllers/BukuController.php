@@ -52,7 +52,10 @@ class BukuController extends Controller
           $request->file('sampul')->store('sampul');
         }
         $buku->save();
-        return redirect()->route('buku.index');
+        return redirect()->route('buku.index')->with('alert',[
+            'type' => 'success',
+            'message' => 'Buku Disimpan !'
+          ]);
     }
 
     public function edit($id)
@@ -90,18 +93,26 @@ class BukuController extends Controller
           $request->file('sampul')->store('sampul');
         }
         $buku->save();
-        return redirect()->route('buku.index');
+        return redirect()->route('buku.index')->with('alert',[
+            'type' => 'success',
+            'message' => 'Buku diperbarui !'
+          ]);
     }
 
     public function destroy($id)
     {
         $buku = Buku::find($id);
-        $filepath = public_path('storage/sampul/' . $buku->sampul);
-        if (file_exists($filepath)){
-            unlink($filepath);
+        if($buku->sampul != null){
+            $filepath = public_path('storage/sampul/' . $buku->sampul);
+            if (file_exists($filepath)){
+                unlink($filepath);
+            }
         }
         $buku->delete();
-        return redirect()->route('buku.index');
+        return redirect()->route('buku.index')->with('alert',[
+            'type' => 'success',
+            'message' => 'Buku Terhapus !'
+          ]);
     }
 
     public function upload(Request $request)
@@ -133,6 +144,9 @@ class BukuController extends Controller
             }
             fclose($handle); // Tutup file setelah selesai
         }
-        return redirect()->route('buku.index');
+        return redirect()->route('buku.index')->with('alert',[
+            'type' => 'success',
+            'message' => 'Data Buku Tersimpan !'
+          ]);
     }
 }

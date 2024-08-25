@@ -92,10 +92,17 @@ Info Peminjam
       <label for="exampleInputEmail1">Jumlah Denda :</label><br>
       <span>{{ 'Rp '.number_format($jumlah_denda,0,',','.') }}</span>
     </div>
-    <form action="{{ route('sirkulasi.kembalikan',$pinjam->id) }}" method="POST">
+    <form action="{{ route('sirkulasi.kembalikan',$pinjam->id) }}" method="POST"
+      onsubmit="return confirmback();">
       @csrf 
       <button type="submit" class="btn btn-success"><i class="fas fa-external-link-square-alt"></i><span> Pengembalian</span></button>
     </form>
   </div>
 </div>
+<script>
+  function confirmback()
+  {
+      return confirm('Proses Pengembalian dilakukan ?')
+  }
+</script>
 @endsection

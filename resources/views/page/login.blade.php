@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Perpus LPSI | Log in</title>
-
+  <link rel="stylesheet" href="{{ asset('/plugins/toastr/toastr.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -30,7 +30,8 @@
       <form action="/autentikasi" method="POST">
         @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" autofocus required name="email">
+          <input type="email" class="form-control" 
+          placeholder="Email" autofocus required name="email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -57,7 +58,9 @@
     <!-- /.login-card-body -->
   </div>
 </div>
+<x-alert />
 <!-- /.login-box -->
+<script src="{{ asset('/plugins/toastr/toastr.min.js') }}"></script>
 
 <!-- jQuery -->
 <script src="{{ asset('/plugins/jquery/jquery.min.js') }}"></script>

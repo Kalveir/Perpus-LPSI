@@ -30,6 +30,8 @@
   <link rel="stylesheet" href="{{ asset('/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('/plugins/summernote/summernote-bs4.min.css') }}">
+  {{-- toastr --}}
+  <link rel="stylesheet" href="{{ asset('/plugins/toastr/toastr.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -111,6 +113,10 @@
 <script src="{{ asset('/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 {{-- custom file --}}
 <script src="{{ asset('/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+{{-- toastr --}}
+<script src="{{ asset('/plugins/toastr/toastr.min.js') }}"></script>
+{{-- alert component --}}
+<x-alert />
 <script>
   $(function () {
     $("#example1").DataTable({

@@ -47,7 +47,8 @@ Daftar Pengembalian Buku
               @csrf
               <button class="btn btn-outline-primary"><i class="fas fa-eye"></i></button>
             </form>
-            <form action="{{ route('pinjam.destroy',$pjm->id) }}" method="post">
+            <form action="{{ route('pinjam.destroy',$pjm->id) }}" method="post"
+              onsubmit="return confirmDelete();">
               @csrf
               @method('DELETE')
               <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
@@ -59,4 +60,10 @@ Daftar Pengembalian Buku
     </tbody>
   </table>
 </div>
+<script>
+  function confirmDelete()
+  {
+      return confirm('Apakaha yakin menghapus pengembalian ini ?')
+  }
+</script>
 @endsection

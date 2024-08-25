@@ -35,7 +35,10 @@ class SirkulasiController extends Controller
         // return $request;
         if ($request->data_tabel == null || $request->lama < 1)
         {
-            return back();
+            return back()->with('alert',[
+                'type' => 'error',
+                'message' => 'Tidak ada peminjaman tersimpan !'
+              ]);
         }else 
         {
             //menambah pinjaman
@@ -64,7 +67,10 @@ class SirkulasiController extends Controller
                     $pinjaman->save();
                 }
             }
-            return redirect()->route('sirkulasi.pinjam');
+            return redirect()->route('sirkulasi.pinjam')->with('alert',[
+                'type' => 'success',
+                'message' => 'Data Peminjaman tersimpan !'
+              ]);
         }
     }
 
@@ -118,7 +124,10 @@ class SirkulasiController extends Controller
         $pinjam->denda = $jumlah_denda;
         $pinjam->status = 1;
         $pinjam->save();
-        return redirect()->route('sirkulasi.pinjam');
+        return redirect()->route('sirkulasi.pinjam')->with('alert',[
+            'type' => 'success',
+            'message' => 'Data Pengembalian tersimpan !'
+          ]);
     }
 
     public function detail($id)
@@ -138,7 +147,10 @@ class SirkulasiController extends Controller
         }
         $pinjam = Pinjam::find($id);
         $pinjam->delete();
-        return redirect()->route('sirkulasi.kembali');
+        return redirect()->route('sirkulasi.kembali')->with('alert',[
+            'type' => 'success',
+            'message' => 'Data Pengembalian Dihapus !'
+          ]);
 
 
     }

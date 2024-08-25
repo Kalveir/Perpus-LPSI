@@ -20,7 +20,10 @@ class RakKategoriController extends Controller
       $rak = new Rak;
       $rak->nama = $request->nama;
       $rak->save();
-      return redirect()->route('rak.index');
+      return redirect()->route('rak.index')->with('alert',[
+        'type' => 'success',
+        'message' => 'Rak disimpan !'
+      ]);;
     }
 
     public function updateRak(Request $request,$id)
@@ -28,14 +31,20 @@ class RakKategoriController extends Controller
       $rak = Rak::find($id);
       $rak->nama = $request->nama;
       $rak->save();
-      return redirect()->route('rak.index');
+      return redirect()->route('rak.index')->with('alert',[
+        'type' => 'success',
+        'message' => 'Rak Diperbarui !'
+      ]);
     }
 
     public function deleteRak($id)
     {
       $rak = Rak::find($id);
       $rak->delete();
-      return redirect()->route('rak.index');
+      return redirect()->route('rak.index')->with('alert',[
+        'type' => 'success',
+        'message' => 'Rak Terhapus !'
+      ]);;
     }
 
     //kelola kategori
@@ -50,7 +59,10 @@ class RakKategoriController extends Controller
       $kategori = new Kategori;
       $kategori->nama = $request->nama;
       $kategori->save();
-      return redirect()->route('kategori.index');
+      return redirect()->route('kategori.index')->with('alert',[
+        'type' => 'success',
+        'message' => 'Kategori disimpan !'
+      ]);
     }
 
     public function updateKategori(Request $request,$id)
@@ -58,13 +70,19 @@ class RakKategoriController extends Controller
       $kategori = Kategori::find($id);
       $kategori->nama = $request->nama;
       $kategori->save();
-      return redirect()->route('kategori.index');
+      return redirect()->route('kategori.index')->with('alert',[
+        'type' => 'success',
+        'message' => 'Kategori diperbarui !'
+      ]);
     }
 
     public function deleteKategori($id)
     {
       $kategori = Kategori::find($id);
       $kategori->delete();
-      return redirect()->route('kategori.index');
+      return redirect()->route('kategori.index')->with('alert',[
+        'type' => 'success',
+        'message' => 'Kategori Dihapus  !'
+      ]);
     }
 }

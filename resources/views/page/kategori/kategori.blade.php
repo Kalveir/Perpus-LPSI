@@ -27,11 +27,11 @@ Daftar Kategori
         <button class="btn icon icon-left btn-outline-warning" data-toggle="modal"
             data-target="#update_modal{{ $ktg->id }}"><i
                 data-feather="alert-triangle" class="fas fa-edit"></i></button>
-        <form action="{{ route('kategori.destroy', $ktg->id) }}" method="POST"
-            class="d-inline">
+        <form id="del-form" action="{{ route('kategori.destroy', $ktg->id) }}" method="POST"
+            class="d-inline" onsubmit="return confirmDelete();">
             @csrf
             @method('DELETE')
-            <button class="btn icon icon-left btn-outline-danger"><i
+            <button id="del-button" class="btn icon icon-left btn-outline-danger"><i
                     data-feather="alert-circle" class="fas fa-trash-alt"></i>
             </button>
         </form>
@@ -109,4 +109,10 @@ Daftar Kategori
       </div>
   </div>
 </div>
+<script>
+    function confirmDelete()
+    {
+        return confirm('Apakaha yakin menghapus kategori ini ?')
+    }
+</script>
 @endsection

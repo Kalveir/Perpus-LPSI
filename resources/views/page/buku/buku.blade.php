@@ -65,7 +65,7 @@ Daftar Buku Perpustakaan
 								@csrf
 								<button class="btn btn-outline-primary"><i class="fas fa-info"></i></button>
 							</form>
-							<form action="{{ route('buku.destroy',$bk->id) }}" method="POST">
+							<form action="{{ route('buku.destroy',$bk->id) }}" method="POST" onsubmit="return confirmDelete();">
 								@csrf
 								@method('DELETE')
 								<button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
@@ -113,4 +113,10 @@ Daftar Buku Perpustakaan
       </div>
   </div>
 </div>
+<script>
+	function confirmDelete()
+	{
+			return confirm('Apakaha yakin menghapus Buku ini ?')
+	}
+</script>
 @endsection
