@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Perpus LPSI | Log in</title>
+  <title>Perpus BSIP RumBes | Log in</title>
   <link rel="stylesheet" href="{{ asset('/plugins/toastr/toastr.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,9 +20,9 @@
   <div class="card">
     <div class="login-logo">
       <img src="{{ asset('/icon/logo.png') }}" width="90" 
-      alt="Logo Univeristas Merdeka Pasuruan" 
+      alt="Logo BSIP Ruminansia Besar" 
       class="img-fluid mb-3"><br>
-      <a href="#"><b>Sistem Perpustakaan <br></b>LPSI RUMBES</a>
+      <a href="#"><b>Sistem Perpustakaan <br></b>BSIP RumBes</a>
     </div>
     <div class="card-body login-card-body">
       <p class="login-box-msg"></p>
